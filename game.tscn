@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b65sslax7jyeq"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_by6r6"]
+[ext_resource type="PackedScene" uid="uid://b6egvlmsxb505" path="res://scenes/game/transition/transition.tscn" id="2_cdtwp"]
+[ext_resource type="PackedScene" uid="uid://c86exeql0vhpm" path="res://scenes/game/ui/menus/pause_menu.tscn" id="3_wdcon"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_by6r6")
+
+[node name="ObjectHolder" type="Node" parent="."]
+
+[node name="CurrentScene" type="Node" parent="."]
+
+[node name="Transition" parent="." instance=ExtResource("2_cdtwp")]
+
+[node name="GameMenus" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="GameMenus" instance=ExtResource("3_wdcon")]
+visible = false
