@@ -1,5 +1,5 @@
 class_name GameScene
-extends Node
+extends CanvasItem
 
 signal done(done_data: Dictionary)
 
