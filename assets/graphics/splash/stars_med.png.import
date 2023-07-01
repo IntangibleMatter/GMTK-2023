@@ -16,9 +16,9 @@ dest_files=["res://.godot/imported/stars_med.png-a5c094d6317577d5f2336c26f95971b
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false
