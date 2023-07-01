@@ -4,6 +4,7 @@ extends GameScene
 @onready var extra_menus := $VBoxContainer/MainPanel/MenuDisplay/MenuDisplayOptionsContainer/ExtraMenus
 @onready var credits_menu := $VBoxContainer/MainPanel/MenuDisplay/MenuDisplayOptionsContainer/ExtraMenus/menu_credits
 @onready var options_menu := $VBoxContainer/MainPanel/MenuDisplay/MenuDisplayOptionsContainer/ExtraMenus/options_menu_options 
+@onready var quit_button: Button = $VBoxContainer/MainPanel/MenuDisplay/MenuDisplayOptionsContainer/MainMenuButtons/HBoxContainer/VBoxContainer/QuitButton
 
 @onready var menu_anim_player := $VBoxContainer/MainPanel/MenuDisplay/MenuDisplayOptionsContainer/AnimationPlayer
 
@@ -12,6 +13,8 @@ extends GameScene
 
 func _ready() -> void:
 	play_button.grab_focus()
+	if OS.get_name() == "Web":
+		quit_button.hide()
 
 
 func _on_options_button_pressed():
