@@ -16,3 +16,5 @@ script = ExtResource("1_by6r6")
 [node name="GameMenus" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="GameMenus" instance=ExtResource("3_wdcon")]
+offset_right = 0.0
+offset_bottom = 0.0
