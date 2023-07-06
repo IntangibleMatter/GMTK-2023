@@ -48,7 +48,7 @@ autowrap_mode = 3
 [node name="LeadArtist" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
-text = "Art - InferiorBanquet"
+text = "Art - QuantumGravy"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
