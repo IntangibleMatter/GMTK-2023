@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cypcxekhhpqug" path="res://assets/graphics/splash/stars_big.png" id="3_p28hq"]
 [ext_resource type="Texture2D" uid="uid://oa3fjxk5psdb" path="res://assets/graphics/splash/stars_sml.png" id="4_yjpl6"]
 [ext_resource type="Texture2D" uid="uid://b4vnyd1lors04" path="res://assets/graphics/splash/intangiblematter.png" id="5_qlw2r"]
-[ext_resource type="FontFile" uid="uid://ci7eh0f7ih554" path="res://assets/fonts/JetBrainsMono.ttf" id="6_ohyfq"]
+[ext_resource type="FontFile" uid="uid://ci7eh0f7ih554" path="res://assets/fonts/JetBrainsMono.ttf" id="6_jfyo2"]
 [ext_resource type="AudioStream" uid="uid://dpdcq1e75bhly" path="res://assets/sfx/splash/splash_wind.wav" id="7_cuu4e"]
 
 [sub_resource type="Animation" id="Animation_o7wis"]
@@ -107,7 +107,6 @@ _data = {
 }
 
 [sub_resource type="LabelSettings" id="LabelSettings_qcvto"]
-font = ExtResource("6_ohyfq")
 font_size = 64
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
@@ -245,6 +244,7 @@ offset_right = 170.0
 offset_bottom = -172.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("6_jfyo2")
 text = "IntangibleMatter"
 label_settings = SubResource("LabelSettings_qcvto")
 horizontal_alignment = 1

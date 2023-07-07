@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsr62bvuryurp"]
+
+[ext_resource type="Script" path="res://scenes/tests/dialoguesoundtest.gd" id="1_ugmqq"]
+[ext_resource type="Resource" uid="uid://djfe2d83ofxbn" path="res://assets/interactions/characters/maid.tres" id="2_b15km"]
+[ext_resource type="Theme" uid="uid://bxqut2lkgna0e" path="res://assets/themes/Dialogue.tres" id="3_2alst"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_l5mua"]
+font_color = Color(0.282353, 0.537255, 0.521569, 1)
+
+[node name="dialoguesoundtest" type="Node2D"]
+script = ExtResource("1_ugmqq")
+speaker = ExtResource("2_b15km")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 8.0
+offset_top = 16.0
+offset_right = 304.0
+offset_bottom = 64.0
+theme = ExtResource("3_2alst")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_l5mua")
+horizontal_alignment = 1
+vertical_alignment = 1

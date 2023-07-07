@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="Character" load_steps=11 format=3 uid="uid://cj2tpu4sdybqv"]
+
+[ext_resource type="Script" path="res://objects/resources/speaker.gd" id="1_8x7ul"]
+[ext_resource type="AudioStream" uid="uid://emrmb822pfue" path="res://assets/sfx/dialogue/butler/ahh1.wav" id="2_uvna7"]
+[ext_resource type="AudioStream" uid="uid://cfgads6n3burv" path="res://assets/sfx/dialogue/butler/ahh2.wav" id="3_neb6n"]
+[ext_resource type="AudioStream" uid="uid://cqvrgim3injho" path="res://assets/sfx/dialogue/butler/ahh3.wav" id="4_ysxmk"]
+[ext_resource type="AudioStream" uid="uid://do8exv3i0bwpo" path="res://assets/sfx/dialogue/butler/eee1.wav" id="5_eh7dy"]
+[ext_resource type="AudioStream" uid="uid://cltnp8w3t51n6" path="res://assets/sfx/dialogue/butler/eee2.wav" id="6_xqkn2"]
+[ext_resource type="AudioStream" uid="uid://ctutcq04k0sgi" path="res://assets/sfx/dialogue/butler/ohh1.wav" id="7_olff4"]
+[ext_resource type="AudioStream" uid="uid://cgdd6yiuepm2j" path="res://assets/sfx/dialogue/butler/oho1.wav" id="8_dja1x"]
+[ext_resource type="AudioStream" uid="uid://dvfurqbx38iys" path="res://assets/sfx/dialogue/butler/ooh1.wav" id="9_iyjrw"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_o5tg1"]
+streams_count = 8
+stream_0/stream = ExtResource("2_uvna7")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("3_neb6n")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("4_ysxmk")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("5_eh7dy")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("6_xqkn2")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("7_olff4")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("8_dja1x")
+stream_6/weight = 1.0
+stream_7/stream = ExtResource("9_iyjrw")
+stream_7/weight = 1.0
+
+[resource]
+script = ExtResource("1_8x7ul")
+name = "Jeeves"
+sound = SubResource("AudioStreamRandomizer_o5tg1")
+colour = Color(0.521569, 0.556863, 1, 1)

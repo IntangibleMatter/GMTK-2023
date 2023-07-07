@@ -1,7 +1,14 @@
-[gd_scene format=3 uid="uid://svpvnaxkd0jd"]
+[gd_scene load_steps=3 format=3 uid="uid://svpvnaxkd0jd"]
+
+[ext_resource type="AudioStream" uid="uid://if1tuimiyuv0" path="res://assets/music/overture.mp3" id="1_3pprf"]
+[ext_resource type="Script" path="res://singletons/music.gd" id="1_hggfe"]
 
 [node name="Music" type="Node"]
+script = ExtResource("1_hggfe")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="main" type="AudioStreamPlayer" parent="."]
 autoplay = true
 bus = &"music"
+
+[node name="overture" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_3pprf")

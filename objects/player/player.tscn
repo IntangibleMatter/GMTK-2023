@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfwwaw5kgdwmb"]
+
+[ext_resource type="Script" path="res://objects/player/player.gd" id="1_707o4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wxnkr"]
+custom_solver_bias = 1.0
+size = Vector2(30, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_do5vm"]
+size = Vector2(32, 32)
+
+[node name="player" type="CharacterBody2D" groups=["Player"]]
+script = ExtResource("1_707o4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -15)
+shape = SubResource("RectangleShape2D_wxnkr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="InteractionArea" type="Area2D" parent="." groups=["PlayerInteract"]]
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_do5vm")
+debug_color = Color(0.635294, 0.529412, 0, 0.419608)

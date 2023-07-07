@@ -56,7 +56,7 @@ autowrap_mode = 3
 [node name="LeadMusician" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
-text = "Music - AquaSystm"
+text = "Music - AquaSystm, Ceags"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3

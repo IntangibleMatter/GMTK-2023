@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Character" load_steps=2 format=3 uid="uid://dj4ss2ce2jfkc"]
+
+[ext_resource type="Script" path="res://objects/resources/speaker.gd" id="1_665ef"]
+
+[resource]
+script = ExtResource("1_665ef")
+name = "Barclay"
+colour = Color(0, 0.937255, 0.937255, 1)
