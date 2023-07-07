@@ -83,7 +83,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath("ColorRect:material:shader_parameter/mask:gradient:offsets")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -95,7 +95,7 @@ tracks/1/keys = {
 }
 tracks/2/type = "value"
 tracks/2/imported = false
-tracks/2/enabled = true
+tracks/2/enabled = false
 tracks/2/path = NodePath("ColorRect:material:shader_parameter/mask:gradient:colors")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
@@ -209,8 +209,9 @@ colors = PackedColorArray(0, 0, 0, 1, 0.40625, 0.40625, 0.40625, 1, 1, 1, 1, 1)
 gradient = SubResource("Gradient_gyho7")
 width = 512
 height = 512
-fill_from = Vector2(1, 0)
+fill_from = Vector2(0.5, 1)
 fill_to = Vector2(0, 1)
+repeat = 2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v6elk"]
 shader = ExtResource("1_68u0x")
@@ -234,8 +235,6 @@ material = SubResource("ShaderMaterial_v6elk")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 512.0
-offset_bottom = 288.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2

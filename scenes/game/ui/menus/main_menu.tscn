@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://pccaipeylmb"]
+[gd_scene load_steps=11 format=3 uid="uid://pccaipeylmb"]
 
 [ext_resource type="Theme" uid="uid://bcb0fhoal7q0d" path="res://assets/themes/theme.tres" id="1_vi7jb"]
 [ext_resource type="Script" path="res://scenes/game/ui/menus/main_menu.gd" id="2_wb6lu"]
+[ext_resource type="Script" path="res://objects/miscscripts/hideonweb.gd" id="3_d6na5"]
 [ext_resource type="PackedScene" uid="uid://bna3a48kkq3bh" path="res://scenes/game/ui/menus/menu_components/options_menu_options.tscn" id="3_luepe"]
 [ext_resource type="PackedScene" uid="uid://b8sa71onakaws" path="res://scenes/game/ui/menus/menu_components/menu_credits.tscn" id="4_s3wjf"]
 
@@ -321,7 +322,7 @@ grow_vertical = 2
 
 [node name="Title" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Game Title"
+text = "Barred From Life"
 label_settings = SubResource("LabelSettings_b14wj")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -385,13 +386,18 @@ layout_mode = 2
 size_flags_horizontal = 7
 size_flags_vertical = 6
 focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../QuitButton")
 focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath("../OptionsButton")
-focus_next = NodePath("../OptionsButton")
-focus_previous = NodePath("../QuitButton")
 mouse_default_cursor_shape = 2
-text = "Play"
+text = "New Game"
+
+[node name="Continuebutton" type="Button" parent="VBoxContainer/MainPanel/MenuDisplay/MenuDisplayOptionsContainer/MainMenuButtons/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 6
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+mouse_default_cursor_shape = 2
+text = "Continue"
 
 [node name="OptionsButton" type="Button" parent="VBoxContainer/MainPanel/MenuDisplay/MenuDisplayOptionsContainer/MainMenuButtons/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -399,11 +405,7 @@ layout_mode = 2
 size_flags_horizontal = 7
 size_flags_vertical = 6
 focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../PlayButton")
 focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath("../CreditsButton")
-focus_next = NodePath("../CreditsButton")
-focus_previous = NodePath("../PlayButton")
 text = "Options"
 
 [node name="CreditsButton" type="Button" parent="VBoxContainer/MainPanel/MenuDisplay/MenuDisplayOptionsContainer/MainMenuButtons/HBoxContainer/VBoxContainer"]
@@ -412,11 +414,7 @@ layout_mode = 2
 size_flags_horizontal = 7
 size_flags_vertical = 6
 focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../OptionsButton")
 focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath("../QuitButton")
-focus_next = NodePath("../QuitButton")
-focus_previous = NodePath("../OptionsButton")
 text = "Credits"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer/MainPanel/MenuDisplay/MenuDisplayOptionsContainer/MainMenuButtons/HBoxContainer/VBoxContainer"]
@@ -424,13 +422,10 @@ layout_mode = 2
 size_flags_horizontal = 7
 size_flags_vertical = 6
 focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../CreditsButton")
 focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath("../PlayButton")
-focus_next = NodePath("../PlayButton")
-focus_previous = NodePath("../CreditsButton")
 text = "Quit
 "
+script = ExtResource("3_d6na5")
 
 [node name="SpacingLabelEnd" type="Label" parent="VBoxContainer/MainPanel/MenuDisplay/MenuDisplayOptionsContainer/MainMenuButtons/HBoxContainer"]
 editor_description = "Adds a bit of padding to the edges of the volume controls
@@ -463,6 +458,7 @@ libraries = {
 }
 
 [connection signal="pressed" from="VBoxContainer/MainPanel/MenuDisplay/MenuDisplayOptionsContainer/MainMenuButtons/HBoxContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MainPanel/MenuDisplay/MenuDisplayOptionsContainer/MainMenuButtons/HBoxContainer/VBoxContainer/Continuebutton" to="." method="_on_continuebutton_pressed"]
 [connection signal="pressed" from="VBoxContainer/MainPanel/MenuDisplay/MenuDisplayOptionsContainer/MainMenuButtons/HBoxContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/MainPanel/MenuDisplay/MenuDisplayOptionsContainer/MainMenuButtons/HBoxContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/MainPanel/MenuDisplay/MenuDisplayOptionsContainer/MainMenuButtons/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

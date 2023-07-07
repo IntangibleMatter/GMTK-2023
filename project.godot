@@ -10,16 +10,18 @@ config_version=5
 
 [application]
 
-config/name="GMTK 2023"
+config/name="Edwin's Escape"
 config/tags=PackedStringArray("jam")
 run/main_scene="res://game.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="edwinsescape"
 config/features=PackedStringArray("4.1", "Forward Plus")
-config/icon="res://icon.svg"
 
 [autoload]
 
 Music="*res://singletons/music.tscn"
 DialogueDisplay="*res://singletons/dialogue/DialogueDisplay.tscn"
+Save="*res://singletons/save.gd"
 
 [display]
 
@@ -69,4 +71,5 @@ jump={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"

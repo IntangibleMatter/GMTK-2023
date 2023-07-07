@@ -5,6 +5,8 @@ extends GameScene
 @onready var credits_menu := $VBoxContainer/MainPanel/MenuDisplay/MenuDisplayOptionsContainer/ExtraMenus/menu_credits
 @onready var options_menu := $VBoxContainer/MainPanel/MenuDisplay/MenuDisplayOptionsContainer/ExtraMenus/options_menu_options 
 @onready var quit_button: Button = $VBoxContainer/MainPanel/MenuDisplay/MenuDisplayOptionsContainer/MainMenuButtons/HBoxContainer/VBoxContainer/QuitButton
+@onready var continuebutton: Button = $VBoxContainer/MainPanel/MenuDisplay/MenuDisplayOptionsContainer/MainMenuButtons/HBoxContainer/VBoxContainer/Continuebutton
+
 
 @onready var menu_anim_player := $VBoxContainer/MainPanel/MenuDisplay/MenuDisplayOptionsContainer/AnimationPlayer
 
@@ -13,8 +15,8 @@ extends GameScene
 
 func _ready() -> void:
 	play_button.grab_focus()
-	if OS.get_name() == "Web":
-		quit_button.hide()
+	if Save.savedata.beaten or not Save.savedata.save_exists:
+		continuebutton.disabled = true
 
 
 func _on_options_button_pressed():
@@ -46,4 +48,9 @@ func _on_quit_button_pressed():
 
 
 func _on_play_button_pressed():
-	emit_signal("done", {"scene": "res://scenes/game/storybook/storybook.tscn"})
+	Save.new_game()
+	emit_signal("done", {"scene": Save.savedata.room})
+
+
+func _on_continuebutton_pressed() -> void:
+	emit_signal("done", {"scene": Save.savedata.room})

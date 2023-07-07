@@ -25,77 +25,90 @@ editor_description = "Adds a bit of padding to the edges of the volume controls
 layout_mode = 2
 text = " "
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="Labels" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MusicVolume" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="SpacingLabelStart" type="Label" parent="HBoxContainer/Labels"]
+editor_description = "Adds a bit of padding to the edges of the volume controls
+"
+layout_mode = 2
+text = " "
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Labels"]
 layout_mode = 2
 size_flags_vertical = 3
-focus_neighbor_top = NodePath("../BackButton")
-focus_neighbor_bottom = NodePath("../SoundsVolume")
-focus_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/MusicVolume"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Labels/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 1
-size_flags_stretch_ratio = 0.63
+
+[node name="Label" type="Label" parent="HBoxContainer/Labels/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Fullscreen"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="HBoxContainer/Labels/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Music Volume"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSlider_mus" type="HSlider" parent="HBoxContainer/VBoxContainer/MusicVolume"]
+[node name="Label3" type="Label" parent="HBoxContainer/Labels/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 1
-focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../../BackButton")
-focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath("../../SoundsVolume/HSlider_sfx")
-max_value = 1.0
-step = 0.1
-value = 1.0
-
-[node name="SoundsVolume" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
-layout_mode = 2
 size_flags_vertical = 3
-focus_neighbor_top = NodePath("../MusicVolume")
-focus_neighbor_bottom = NodePath("../BackButton")
-focus_mode = 2
-
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/SoundsVolume"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-size_flags_stretch_ratio = 0.63
 text = "Sounds Volume"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSlider_sfx" type="HSlider" parent="HBoxContainer/VBoxContainer/SoundsVolume"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/Labels/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 1
+
+[node name="Fullscreen" type="CheckBox" parent="HBoxContainer/Labels/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+
+[node name="HSlider_mus" type="HSlider" parent="HBoxContainer/Labels/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../../MusicVolume/HSlider_mus")
 focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath("../../BackButton")
 max_value = 1.0
 step = 0.1
 value = 1.0
 
-[node name="BackButton" type="Button" parent="HBoxContainer/VBoxContainer"]
+[node name="HSlider_sfx" type="HSlider" parent="HBoxContainer/Labels/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 4
+size_flags_vertical = 3
 focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../SoundsVolume/HSlider_sfx")
+focus_neighbor_top = NodePath("../HSlider_mus")
 focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath("../MusicVolume/HSlider_mus")
+focus_neighbor_bottom = NodePath("../../../BackButton")
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="BackButton" type="Button" parent="HBoxContainer/Labels"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../HBoxContainer/VBoxContainer2/HSlider_sfx")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../HBoxContainer/VBoxContainer2/HSlider_mus")
 text = "Back"
 
-[node name="SpacingLabelEnd" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="SpacingLabelEnd" type="Label" parent="HBoxContainer/Labels"]
 editor_description = "Adds a bit of padding to the edges of the volume controls
 "
 layout_mode = 2
@@ -107,4 +120,7 @@ editor_description = "Adds a bit of padding to the edges of the volume controls
 layout_mode = 2
 text = " "
 
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="toggled" from="HBoxContainer/Labels/HBoxContainer/VBoxContainer2/Fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="value_changed" from="HBoxContainer/Labels/HBoxContainer/VBoxContainer2/HSlider_mus" to="." method="_on_h_slider_mus_value_changed"]
+[connection signal="value_changed" from="HBoxContainer/Labels/HBoxContainer/VBoxContainer2/HSlider_sfx" to="." method="_on_h_slider_sfx_value_changed"]
+[connection signal="pressed" from="HBoxContainer/Labels/BackButton" to="." method="_on_back_button_pressed"]

@@ -251,7 +251,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="WindSoundPlayer" type="AudioStreamPlayer2D" parent="ParallaxBackground/IntangibleMatter/Sprite2D"]
-position = Vector2(-682.667, -341.333)
 scale = Vector2(2.66667, 2.66667)
 stream = ExtResource("7_cuu4e")
 volume_db = -3.0

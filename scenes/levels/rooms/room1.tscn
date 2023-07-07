@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8obc2jqnkxnj"]
+
+[ext_resource type="PackedScene" uid="uid://dc8qvtuc66xur" path="res://scenes/levels/levelbase.tscn" id="1_1g77n"]
+[ext_resource type="PackedScene" uid="uid://d2lg50gn32etm" path="res://objects/components/checkpoint.tscn" id="2_x210n"]
+
+[node name="levelbase" instance=ExtResource("1_1g77n")]
+
+[node name="TileMap" type="TileMap" parent="." index="0"]
+format = 2
+
+[node name="Checkpoints" type="Node2D" parent="." index="1"]
+
+[node name="checkpoint" parent="Checkpoints" index="0" instance=ExtResource("2_x210n")]
