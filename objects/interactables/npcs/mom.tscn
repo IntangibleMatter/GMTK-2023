@@ -1,7 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cchybu8ft605l"]
+[gd_scene load_steps=8 format=3 uid="uid://cchybu8ft605l"]
 
 [ext_resource type="PackedScene" uid="uid://bixes7rolohr7" path="res://objects/interactables/npcs/npc_base.tscn" id="1_bbgt7"]
 [ext_resource type="Texture2D" uid="uid://g7ud2x1nygxh" path="res://assets/graphics/characters/npcs/Char_Mom_Sprite.png" id="2_hltsl"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3m7df"]
+radius = 15.0
+height = 52.0
 
 [sub_resource type="Animation" id="Animation_160ln"]
 resource_name = "Idle"
@@ -18,6 +22,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_3jgnp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
 }
 
 [sub_resource type="Animation" id="Animation_xnxfy"]
@@ -37,21 +56,6 @@ tracks/0/keys = {
 "values": [4, 5]
 }
 
-[sub_resource type="Animation" id="Animation_3jgnp"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [5]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cb4q0"]
 _data = {
 "Idle": SubResource("Animation_160ln"),
@@ -66,6 +70,10 @@ texture = ExtResource("2_hltsl")
 hframes = 4
 vframes = 2
 frame = 5
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(1, -26)
+shape = SubResource("CapsuleShape2D_3m7df")
 
 [node name="AnimationPlayer" parent="." index="3"]
 libraries = {

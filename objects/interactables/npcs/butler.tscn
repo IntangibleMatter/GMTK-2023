@@ -1,7 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dx1jbg0ty0atk"]
+[gd_scene load_steps=8 format=3 uid="uid://dx1jbg0ty0atk"]
 
 [ext_resource type="PackedScene" uid="uid://bixes7rolohr7" path="res://objects/interactables/npcs/npc_base.tscn" id="1_m4fba"]
 [ext_resource type="Texture2D" uid="uid://djmmrdmpkq8ti" path="res://assets/graphics/characters/npcs/Char_Butler_Sprite.png" id="2_jepct"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3xh60"]
+radius = 12.0
+height = 56.0
 
 [sub_resource type="Animation" id="Animation_bjj1p"]
 resource_name = "Idle"
@@ -18,23 +22,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
-}
-
-[sub_resource type="Animation" id="Animation_dsjff"]
-resource_name = "Talk"
-length = 0.5
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [Vector2i(1, 1), Vector2i(0, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_2xsog"]
@@ -64,6 +51,23 @@ tracks/1/keys = {
 "values": [Vector2i(0, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_dsjff"]
+resource_name = "Talk"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(1, 1), Vector2i(0, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cmdiv"]
 _data = {
 "Idle": SubResource("Animation_bjj1p"),
@@ -78,6 +82,10 @@ texture = ExtResource("2_jepct")
 hframes = 2
 vframes = 2
 frame = 2
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-4, -28)
+shape = SubResource("CapsuleShape2D_3xh60")
 
 [node name="AnimationPlayer" parent="." index="3"]
 libraries = {
