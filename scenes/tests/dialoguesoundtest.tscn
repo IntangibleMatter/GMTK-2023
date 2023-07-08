@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dsr62bvuryurp"]
 
 [ext_resource type="Script" path="res://scenes/tests/dialoguesoundtest.gd" id="1_ugmqq"]
-[ext_resource type="Resource" uid="uid://djfe2d83ofxbn" path="res://assets/interactions/characters/maid.tres" id="2_b15km"]
+[ext_resource type="Resource" uid="uid://dj4ss2ce2jfkc" path="res://assets/interactions/characters/player.tres" id="2_313de"]
 [ext_resource type="Theme" uid="uid://bxqut2lkgna0e" path="res://assets/themes/Dialogue.tres" id="3_2alst"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_l5mua"]
@@ -9,7 +9,7 @@ font_color = Color(0.282353, 0.537255, 0.521569, 1)
 
 [node name="dialoguesoundtest" type="Node2D"]
 script = ExtResource("1_ugmqq")
-speaker = ExtResource("2_b15km")
+speaker = ExtResource("2_313de")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 

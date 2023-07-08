@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Character" load_steps=9 format=3 uid="uid://b6l4jdkei6vcw"]
+
+[ext_resource type="Script" path="res://objects/resources/speaker.gd" id="1_ejwwh"]
+[ext_resource type="AudioStream" uid="uid://bpmpt6rnmpvit" path="res://assets/sfx/dialogue/player/h1.wav" id="2_wl508"]
+[ext_resource type="AudioStream" uid="uid://bacwjwdmuqp17" path="res://assets/sfx/dialogue/player/h2.wav" id="3_w13qt"]
+[ext_resource type="AudioStream" uid="uid://022sqiwc4rdf" path="res://assets/sfx/dialogue/player/h3.wav" id="4_1f4p3"]
+[ext_resource type="AudioStream" uid="uid://ootuvw7tubtb" path="res://assets/sfx/dialogue/player/h4.wav" id="5_fmp8j"]
+[ext_resource type="AudioStream" uid="uid://cfrhrqaw5878m" path="res://assets/sfx/dialogue/player/h5.wav" id="6_x3n5g"]
+[ext_resource type="AudioStream" uid="uid://tdvjgvcp6ow4" path="res://assets/sfx/dialogue/player/h6.wav" id="7_4x88r"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_hbu2n"]
+streams_count = 6
+stream_0/stream = ExtResource("2_wl508")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("3_w13qt")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("4_1f4p3")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("5_fmp8j")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("6_x3n5g")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("7_4x88r")
+stream_5/weight = 1.0
+
+[resource]
+script = ExtResource("1_ejwwh")
+name = "Edwin"
+sound = SubResource("AudioStreamRandomizer_hbu2n")
+colour = Color(0, 0.937255, 0.937255, 1)

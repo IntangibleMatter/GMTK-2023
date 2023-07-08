@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4jnfnnruoy4a"]
+
+[ext_resource type="Texture2D" uid="uid://dpeel14goa7gx" path="res://icon.svg" id="1_ci6t1"]
+[ext_resource type="PackedScene" uid="uid://cfwwaw5kgdwmb" path="res://objects/player/player.tscn" id="2_j6yrm"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e3nfr"]
+texture = ExtResource("1_ci6t1")
+texture_region_size = Vector2i(32, 32)
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/terrain = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_na75d"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Terrain 0"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+sources/1 = SubResource("TileSetAtlasSource_e3nfr")
+
+[node name="platformingtest" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_na75d")
+cell_quadrant_size = 32
+format = 2
+layer_0/tile_data = PackedInt32Array(524288, 65537, 0, 524289, 65537, 0, 524290, 65537, 0, 524291, 65537, 0, 524292, 65537, 0, 524293, 65537, 0, 524294, 65537, 0, 524295, 65537, 0, 524296, 65537, 0, 524297, 65537, 0, 524298, 65537, 0, 524299, 65537, 0, 524300, 65537, 0, 524301, 65537, 0, 524302, 65537, 0, 524303, 65537, 0, 589823, 65537, 0, 524287, 65537, 0, 458751, 65537, 0, 393215, 65537, 0, 327679, 65537, 0, 262143, 65537, 0, 524304, 65537, 0, 524305, 65537, 0, 524306, 65537, 0, 524307, 65537, 0, 524308, 65537, 0, 524309, 65537, 0, 524310, 65537, 0, 524311, 65537, 0, 524312, 65537, 0, 524313, 65537, 0, 524314, 65537, 0, 524315, 65537, 0, 458779, 65537, 0, 393243, 65537, 0, 327707, 65537, 0, 262171, 65537, 0, 196635, 65537, 0, 131099, 65537, 0, 65563, 65537, 0, 27, 65537, 0, -65509, 65537, 0, 458766, 65537, 0, 458767, 65537, 0, 458768, 65537, 0, 458769, 65537, 0, 458770, 65537, 0, 458771, 65537, 0, 458772, 65537, 0, 458773, 65537, 0, 458774, 65537, 0, 393239, 65537, 0, 393240, 65537, 0, 327705, 65537, 0, 327706, 65537, 0, 327687, 65537, 0, 327688, 65537, 0, 327689, 65537, 0, 196611, 65537, 0, 196612, 65537, 0, 196610, 65537, 0, -131075, 65537, 0, -65539, 65537, 0, -3, 65537, 0, 65533, 65537, 0, 131069, 65537, 0, 196605, 65537, 0, 196606, 65537, 0, 262142, 65537, 0)
+
+[node name="player" parent="." instance=ExtResource("2_j6yrm")]
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+position = Vector2(1, 0)
