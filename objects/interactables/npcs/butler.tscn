@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dx1jbg0ty0atk"]
+
+[ext_resource type="PackedScene" uid="uid://bixes7rolohr7" path="res://objects/interactables/npcs/npc_base.tscn" id="1_m4fba"]
+
+[node name="Butler" instance=ExtResource("1_m4fba")]

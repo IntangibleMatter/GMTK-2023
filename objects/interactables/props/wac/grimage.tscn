@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://cuyqo8k812gvk"]
+
+[ext_resource type="PackedScene" uid="uid://ht54ul0deq8n" path="res://objects/interactables/props/propbase.tscn" id="1_tlfj0"]
+[ext_resource type="Texture2D" uid="uid://bb3vopmsxhunm" path="res://assets/graphics/props/Props_Spritesheet.png" id="2_b7hy8"]
+[ext_resource type="Script" path="res://objects/resources/interaction.gd" id="3_dobul"]
+[ext_resource type="Resource" uid="uid://dj4ss2ce2jfkc" path="res://assets/interactions/characters/player.tres" id="4_3gu7u"]
+
+[sub_resource type="Resource" id="Resource_pgcsv"]
+script = ExtResource("3_dobul")
+disable_on_interact = false
+speakers = Array[Object]([null, ExtResource("4_3gu7u")])
+speaker_order = PackedInt32Array()
+dialogue = PackedStringArray()
+changes_health = true
+health_change = -69420
+status_effect = "Pure poison"
+inventory = ""
+required_inventory = PackedStringArray()
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2crtt"]
+
+[node name="mcds-shake" instance=ExtResource("1_tlfj0")]
+position = Vector2(0, -16)
+texture = ExtResource("2_b7hy8")
+hframes = 16
+vframes = 16
+frame = 85
+interactions = Array[ExtResource("3_dobul")]([SubResource("Resource_pgcsv")])
+obj_name = "Grimage Shake"
+
+[node name="interactablebase" parent="." index="0"]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_2crtt")

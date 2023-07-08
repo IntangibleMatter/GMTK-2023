@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://d173kw5ug5niv"]
+
+[ext_resource type="PackedScene" uid="uid://ht54ul0deq8n" path="res://objects/interactables/props/propbase.tscn" id="1_o8084"]
+[ext_resource type="Texture2D" uid="uid://bb3vopmsxhunm" path="res://assets/graphics/props/Props_Spritesheet.png" id="2_3bgy6"]
+
+[node name="mcds-burger" instance=ExtResource("1_o8084")]
+position = Vector2(0, -16)
+texture = ExtResource("2_3bgy6")
+hframes = 16
+vframes = 16
+frame = 83
+interactions = Array[Resource("res://objects/resources/interaction.gd")]([null])
+obj_name = "Wacburger"

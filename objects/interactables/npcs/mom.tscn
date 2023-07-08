@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cchybu8ft605l"]
+
+[ext_resource type="PackedScene" uid="uid://bixes7rolohr7" path="res://objects/interactables/npcs/npc_base.tscn" id="1_bbgt7"]
+
+[node name="Mom" instance=ExtResource("1_bbgt7")]

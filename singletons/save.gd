@@ -28,8 +28,13 @@ func _ready() -> void:
 
 
 func change_player_health(change: int) -> void:
-	savedata.health += change
-	savedata.health = clamp(savedata.health, 0, 16)
+	if change < -1000:
+		match change:
+			-69420:
+				savedata.health = 1
+	else:
+		savedata.health += change
+		savedata.health = clamp(savedata.health, 0, 16)
 	emit_signal("player_health_changed", change)
 
 

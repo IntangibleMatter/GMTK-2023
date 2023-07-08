@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bixes7rolohr7"]
+
+[ext_resource type="Script" path="res://objects/interactables/npcs/npc_base.gd" id="1_ru0eg"]
+[ext_resource type="Script" path="res://objects/interactables/interactablebase.gd" id="2_1cylm"]
+
+[node name="npc_base" type="CharacterBody2D"]
+script = ExtResource("1_ru0eg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+
+[node name="InteractableBase" type="Area2D" parent="."]
+position = Vector2(0, -24)
+script = ExtResource("2_1cylm")
