@@ -1,21 +1,87 @@
-[gd_scene load_steps=6 format=3 uid="uid://cfwwaw5kgdwmb"]
+[gd_scene load_steps=23 format=3 uid="uid://cfwwaw5kgdwmb"]
 
 [ext_resource type="Script" path="res://objects/player/player.gd" id="1_707o4"]
-[ext_resource type="AnimationLibrary" uid="uid://ci7ggioqwrdgn" path="res://assets/graphics/characters/player/Anim_Edwin.res" id="2_drcfl"]
-[ext_resource type="Texture2D" uid="uid://c0188gqdao6c2" path="res://assets/graphics/characters/player/C_Edwin_Spritesheet.png" id="3_mv8lm"]
+[ext_resource type="AnimationLibrary" uid="uid://4743sfe51a53" path="res://assets/graphics/characters/player/Anim_Edwin.tres" id="2_n0ui5"]
+[ext_resource type="Texture2D" uid="uid://c0188gqdao6c2" path="res://assets/graphics/characters/player/C_Edwin_Spritesheet.png" id="3_w3g24"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wxnkr"]
 custom_solver_bias = 1.0
-size = Vector2(30, 30)
+size = Vector2(18, 28)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_do5vm"]
-size = Vector2(32, 32)
+size = Vector2(24, 24)
+
+[sub_resource type="GDScript" id="GDScript_kjsox"]
+script/source = "extends Sprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wkn8w"]
+animation = &"Anim_Edwin/Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r70by"]
+animation = &"Anim_Edwin/Jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1ynnu"]
+animation = &"Anim_Edwin/Land"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ckvm0"]
+animation = &"Anim_Edwin/Talk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pddpb"]
+animation = &"Anim_Edwin/Walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ehvsv"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6miya"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3rcdt"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rxtbo"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_whb6h"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5pwwd"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ns32v"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pj1bv"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wdmi0"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_iyrfx"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_6bop7"]
+states/Anim_Edwin_Idle/node = SubResource("AnimationNodeAnimation_wkn8w")
+states/Anim_Edwin_Idle/position = Vector2(344, 56)
+states/Anim_Edwin_Jump/node = SubResource("AnimationNodeAnimation_r70by")
+states/Anim_Edwin_Jump/position = Vector2(636, 56)
+states/Anim_Edwin_Land/node = SubResource("AnimationNodeAnimation_1ynnu")
+states/Anim_Edwin_Land/position = Vector2(709, 159)
+states/Anim_Edwin_Talk/node = SubResource("AnimationNodeAnimation_ckvm0")
+states/Anim_Edwin_Talk/position = Vector2(280, 307)
+states/Anim_Edwin_Walk/node = SubResource("AnimationNodeAnimation_pddpb")
+states/Anim_Edwin_Walk/position = Vector2(554, 292)
+states/End/position = Vector2(1065, 154)
+states/Start/position = Vector2(153, 92)
+transitions = ["Start", "Anim_Edwin_Idle", SubResource("AnimationNodeStateMachineTransition_ehvsv"), "Anim_Edwin_Idle", "Anim_Edwin_Walk", SubResource("AnimationNodeStateMachineTransition_6miya"), "Anim_Edwin_Idle", "Anim_Edwin_Jump", SubResource("AnimationNodeStateMachineTransition_3rcdt"), "Anim_Edwin_Walk", "Anim_Edwin_Jump", SubResource("AnimationNodeStateMachineTransition_rxtbo"), "Anim_Edwin_Jump", "Anim_Edwin_Land", SubResource("AnimationNodeStateMachineTransition_whb6h"), "Anim_Edwin_Land", "Anim_Edwin_Walk", SubResource("AnimationNodeStateMachineTransition_5pwwd"), "Anim_Edwin_Walk", "Anim_Edwin_Idle", SubResource("AnimationNodeStateMachineTransition_ns32v"), "Anim_Edwin_Idle", "Anim_Edwin_Talk", SubResource("AnimationNodeStateMachineTransition_pj1bv"), "Anim_Edwin_Talk", "Anim_Edwin_Idle", SubResource("AnimationNodeStateMachineTransition_wdmi0"), "Anim_Edwin_Land", "Anim_Edwin_Jump", SubResource("AnimationNodeStateMachineTransition_iyrfx")]
 
 [node name="player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_707o4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -15)
+position = Vector2(0, -14)
 shape = SubResource("RectangleShape2D_wxnkr")
 
 [node name="InteractionArea" type="Area2D" parent="." groups=["PlayerInteract"]]
@@ -28,11 +94,22 @@ debug_color = Color(0.635294, 0.529412, 0, 0.419608)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"Anim_Edwin": ExtResource("2_drcfl")
+"Anim_Edwin": ExtResource("2_n0ui5")
 }
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -16)
-texture = ExtResource("3_mv8lm")
+texture = ExtResource("3_w3g24")
 hframes = 4
 vframes = 3
+script = SubResource("GDScript_kjsox")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_6bop7")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.1
+autostart = true

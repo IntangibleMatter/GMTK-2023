@@ -1,0 +1,26 @@
+[gd_resource type="TileSet" load_steps=4 format=3 uid="uid://024fljlpwtdy"]
+
+[ext_resource type="Texture2D" uid="uid://cum3joifsea2m" path="res://assets/graphics/environments/TS_WoodBordersPlanks.png" id="1_dsl71"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5id8x"]
+atlas = ExtResource("1_dsl71")
+region = Rect2(0, 128, 64, 32)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7hbm2"]
+texture = SubResource("AtlasTexture_5id8x")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/z_index = -1
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+1:0/0 = 0
+1:0/0/z_index = -1
+1:0/0/terrain_set = 0
+1:0/0/terrain = 0
+
+[resource]
+tile_size = Vector2i(32, 32)
+terrain_set_0/mode = 2
+terrain_set_0/terrain_0/name = "wood"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+sources/0 = SubResource("TileSetAtlasSource_7hbm2")

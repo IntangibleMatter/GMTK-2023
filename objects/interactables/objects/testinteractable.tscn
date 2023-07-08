@@ -1,0 +1,31 @@
+[gd_scene load_steps=9 format=3 uid="uid://b74hg4xxg5coo"]
+
+[ext_resource type="PackedScene" uid="uid://by78a7vr0pwrr" path="res://objects/interactables/interactablebase.tscn" id="1_2a5k0"]
+[ext_resource type="Texture2D" uid="uid://dpeel14goa7gx" path="res://icon.svg" id="2_eqkl2"]
+[ext_resource type="Script" path="res://objects/resources/interaction.gd" id="2_lwvpn"]
+[ext_resource type="Resource" uid="uid://dj4ss2ce2jfkc" path="res://assets/interactions/characters/player.tres" id="3_0e1m2"]
+[ext_resource type="Resource" uid="uid://cj2tpu4sdybqv" path="res://assets/interactions/characters/butler.tres" id="4_vlekq"]
+[ext_resource type="Resource" uid="uid://djfe2d83ofxbn" path="res://assets/interactions/characters/maid.tres" id="5_5a61a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7e4s0"]
+size = Vector2(128, 128)
+
+[sub_resource type="Resource" id="Resource_nqbjx"]
+script = ExtResource("2_lwvpn")
+disable_on_interact = false
+speakers = Array[Object]([ExtResource("3_0e1m2"), ExtResource("4_vlekq"), ExtResource("5_5a61a")])
+speaker_order = PackedInt32Array(0, 0, 1, 0, 2)
+dialogue = PackedStringArray("hey", "this is a teste", "it sure is", "yep", "i\'m here tooo!")
+changes_health = false
+health_change = 0
+status_effect = ""
+
+[node name="interactablebase" instance=ExtResource("1_2a5k0")]
+shape = SubResource("RectangleShape2D_7e4s0")
+interaction = SubResource("Resource_nqbjx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_eqkl2")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_7e4s0")

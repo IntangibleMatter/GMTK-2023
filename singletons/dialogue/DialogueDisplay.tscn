@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://drllpcgk3ptv4"]
+[gd_scene load_steps=3 format=3 uid="uid://drllpcgk3ptv4"]
 
 [ext_resource type="PackedScene" uid="uid://515g6xxp2mn3" path="res://singletons/dialogue/Dialogue.tscn" id="1_5mj5f"]
+[ext_resource type="Script" path="res://singletons/dialogue/DialogueDisplay.gd" id="1_370ac"]
 
 [node name="DialogueDisplay" type="CanvasLayer"]
+script = ExtResource("1_370ac")
 
 [node name="Dialogue" parent="." instance=ExtResource("1_5mj5f")]
+
+[connection signal="speaker_changed" from="Dialogue" to="." method="_on_dialogue_speaker_changed"]
