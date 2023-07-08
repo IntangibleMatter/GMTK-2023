@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4jnfnnruoy4a"]
+[gd_scene load_steps=7 format=3 uid="uid://c4jnfnnruoy4a"]
 
+[ext_resource type="Script" path="res://scenes/game_scene.gd" id="1_khv2o"]
 [ext_resource type="TileSet" uid="uid://bkn8vis8rwc3v" path="res://assets/graphics/environments/Wood_Tilemap_Complete.tres" id="1_wackb"]
 [ext_resource type="PackedScene" uid="uid://cfwwaw5kgdwmb" path="res://objects/player/player.tscn" id="2_j6yrm"]
 [ext_resource type="TileSet" uid="uid://024fljlpwtdy" path="res://assets/graphics/environments/Backgrounds.tres" id="2_m2vh6"]
@@ -7,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bt4f6o0lbuk10" path="res://objects/components/StatusEffects.tscn" id="5_sm2qr"]
 
 [node name="platformingtest" type="Node2D"]
+script = ExtResource("1_khv2o")
 metadata/_edit_horizontal_guides_ = [-80.0]
 
 [node name="interactablebase" parent="." instance=ExtResource("4_jtbyi")]

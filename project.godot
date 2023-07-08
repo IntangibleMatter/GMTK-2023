@@ -14,7 +14,6 @@ config/name="Barred From Life"
 config/tags=PackedStringArray("jam")
 run/main_scene="res://game.tscn"
 config/use_custom_user_dir=true
-config/custom_user_dir_name="edwinsescape"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.png"
 config/windows_native_icon="res://icon.ico"
