@@ -1,5 +1,7 @@
 extends Node
 
+signal player_health_changed(by: int)
+ 
 var savepath := "user://grimaceshake.sav"
 
 var default_savedata : Dictionary = {
@@ -9,6 +11,7 @@ var default_savedata : Dictionary = {
 	"beaten": false,
 	"health": 16,
 	"status": [],
+	"inventory": [],
 	"mus_v": 1,
 	"sfx_v": 1,
 	"fullscreen": false
@@ -23,9 +26,21 @@ func _ready() -> void:
 	AudioServer.set_bus_volume_db(1, linear_to_db(savedata.sfx_v))
 	AudioServer.set_bus_volume_db(2, linear_to_db(savedata.mus_v))
 
+
+func change_player_health(change: int) -> void:
+	savedata.health += change
+	savedata.health = clamp(savedata.health, 0, 16)
+	emit_signal("player_health_changed", change)
+
+
+func add_to_inventory(item: String) -> void:
+	savedata.inventory.append(item)
+
+
 func new_game() -> void:
 	savedata = default_savedata
 	save_game()
+
 
 func update_room(room: String) -> void:
 	savedata.save_exists = true

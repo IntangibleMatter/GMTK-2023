@@ -1,9 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://cfwwaw5kgdwmb"]
+[gd_scene load_steps=27 format=3 uid="uid://cfwwaw5kgdwmb"]
 
 [ext_resource type="Script" path="res://objects/player/player.gd" id="1_707o4"]
 [ext_resource type="AnimationLibrary" uid="uid://4743sfe51a53" path="res://assets/graphics/characters/player/Anim_Edwin.tres" id="2_n0ui5"]
 [ext_resource type="Texture2D" uid="uid://c0188gqdao6c2" path="res://assets/graphics/characters/player/C_Edwin_Spritesheet.png" id="3_w3g24"]
 [ext_resource type="Texture2D" uid="uid://4xx434qxsfld" path="res://assets/graphics/userInterface/healthbar.png" id="4_d732w"]
+[ext_resource type="AudioStream" uid="uid://kxf6hwnqn5e0" path="res://assets/sfx/gameplay/playerhurt/playerhurt.tres" id="5_rt8po"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cxmlv"]
 size = Vector2(16, 26)
@@ -86,7 +87,6 @@ atlas = ExtResource("4_d732w")
 region = Rect2(8, 0, 8, 64)
 
 [node name="player" type="CharacterBody2D" groups=["Player"]]
-collision_layer = 2
 script = ExtResource("1_707o4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -137,3 +137,8 @@ value = 64.0
 fill_mode = 3
 texture_under = SubResource("AtlasTexture_pb1g1")
 texture_progress = SubResource("AtlasTexture_syuad")
+
+[node name="hurtsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_rt8po")
+max_polyphony = 5
+bus = &"sfx"

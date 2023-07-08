@@ -6,6 +6,8 @@ const JUMP_VELOCITY = -360.0
 const ACCELERATION = 200.0
 const FRICTION = 500.0
 
+var health_scale_factor := 4
+
 var movement_locked := false
 var was_in_air: bool = false
 
@@ -17,18 +19,25 @@ var was_in_air: bool = false
 @onready var coyote_timer: Timer = $CoyoteTimer
 @onready var health_collider: CollisionPolygon2D = $CollisionPolygon2D
 @onready var healthbar: TextureProgressBar = $healthbar
+@onready var hurtsound: AudioStreamPlayer2D = $hurtsound
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+
+func _ready() -> void:
+	Save.player_health_changed.connect(Callable(self, "health_change"))
+	healthbar.value = Save.savedata.health * health_scale_factor
+
 
 func _input(event):
 	if DialogueDisplay.player_frozen:
 		return
 	
 	if event.is_action_pressed("ui_page_down"):
-		Save.savedata.health -= 1
+		Save.change_player_health(-1)
 	if event.is_action_pressed("ui_page_up"):
-		Save.savedata.health += 1
+		Save.change_player_health(1)
 	
 	if event.is_action_pressed("interact"):
 		print("interact")
@@ -102,8 +111,15 @@ func animate() -> void:
 
 
 func update_bar() -> void:
-	Save.savedata.health = clamp(Save.savedata.health, 0, 16)
-	healthbar.value = Save.savedata.health * 4
+#	healthbar.value = Save.savedata.health * 4
 	var healthbar_offset : float = healthbar.position.y + healthbar.size.y
 	health_collider.polygon[0].y = -healthbar.value + healthbar_offset
 	health_collider.polygon[1].y = -healthbar.value + healthbar_offset
+
+
+func health_change(by: int) -> void:
+	if sign(by) < 0:
+		hurtsound.play()
+	var tween := get_tree().create_tween().set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(healthbar, "value", Save.savedata.health * health_scale_factor, 0.2)
+
