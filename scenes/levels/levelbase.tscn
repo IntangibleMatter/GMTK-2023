@@ -1,9 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://dc8qvtuc66xur"]
+[gd_scene load_steps=5 format=3 uid="uid://dc8qvtuc66xur"]
 
 [ext_resource type="Script" path="res://scenes/levels/levelbase.gd" id="1_yxwxe"]
+[ext_resource type="TileSet" uid="uid://024fljlpwtdy" path="res://assets/graphics/environments/Backgrounds.tres" id="2_6e33f"]
+[ext_resource type="TileSet" uid="uid://bkn8vis8rwc3v" path="res://assets/graphics/environments/Wood_Tilemap_Complete.tres" id="3_fi153"]
+[ext_resource type="PackedScene" uid="uid://bt4f6o0lbuk10" path="res://objects/components/StatusEffects.tscn" id="4_aeojl"]
 
 [node name="levelbase" type="Node2D"]
 script = ExtResource("1_yxwxe")
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="TileMap2" type="TileMap" parent="."]
+tile_set = ExtResource("2_6e33f")
 format = 2
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("3_fi153")
+cell_quadrant_size = 32
+format = 2
+
+[node name="StatusEffects" parent="." instance=ExtResource("4_aeojl")]

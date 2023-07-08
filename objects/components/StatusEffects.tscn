@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt4f6o0lbuk10"]
+
+[ext_resource type="FontFile" uid="uid://blkjmhcosyd5r" path="res://assets/fonts/Metropolis-Bold.otf" id="1_1ly7g"]
+[ext_resource type="Script" path="res://objects/components/StatusEffects.gd" id="1_q5ha3"]
+
+[node name="StatusEffects" type="CanvasLayer"]
+script = ExtResource("1_q5ha3")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 128.0
+offset_bottom = -6.0
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/normal_font = ExtResource("1_1ly7g")
+theme_override_font_sizes/normal_font_size = 11
+bbcode_enabled = true
+text = "[wave amp=8][color=red]"
+scroll_active = false
+scroll_following = true
+
+[node name="NewStatusSound" type="AudioStreamPlayer" parent="."]
+max_polyphony = 8
+bus = &"sfx"

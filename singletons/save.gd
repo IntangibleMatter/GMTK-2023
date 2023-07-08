@@ -7,6 +7,8 @@ var default_savedata : Dictionary = {
 	"room": "res://scenes/levels/rooms/room1.tscn",
 	"checkpoint": 0,
 	"beaten": false,
+	"health": 16,
+	"status": [],
 	"mus_v": 1,
 	"sfx_v": 1,
 	"fullscreen": false

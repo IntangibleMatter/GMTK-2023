@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://singletons/dialogue/DialogueDisplay.gd" id="1_370ac"]
 
 [node name="DialogueDisplay" type="CanvasLayer"]
+layer = 3
 script = ExtResource("1_370ac")
 
 [node name="Dialogue" parent="." instance=ExtResource("1_5mj5f")]

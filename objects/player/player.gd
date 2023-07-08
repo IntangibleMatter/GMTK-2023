@@ -15,17 +15,23 @@ var was_in_air: bool = false
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animation_state: AnimationNodeStateMachinePlayback = $AnimationTree["parameters/playback"]
 @onready var coyote_timer: Timer = $CoyoteTimer
+@onready var health_collider: CollisionPolygon2D = $CollisionPolygon2D
+@onready var healthbar: TextureProgressBar = $healthbar
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _input(event):
-#	if movement_locked:
-#		return
+	if DialogueDisplay.player_frozen:
+		return
+	
+	if event.is_action_pressed("ui_page_down"):
+		Save.savedata.health -= 1
+	if event.is_action_pressed("ui_page_up"):
+		Save.savedata.health += 1
 	
 	if event.is_action_pressed("interact"):
 		print("interact")
-		movement_locked = !movement_locked
 		if interaction_area.has_overlapping_areas():
 			if interaction_area.get_overlapping_areas()[0].is_in_group("Interactables"):
 				var interactable : InteractableBase = interaction_area.get_overlapping_areas()[0]
@@ -37,15 +43,19 @@ func _input(event):
 
 
 func _physics_process(delta):
+	update_bar()
 	animate()
 	# Add the gravity.
 	if not is_on_floor():
 		was_in_air = true
-		velocity.y += gravity * delta
+		if velocity.y <= 0:
+			velocity.y += gravity * delta
+		else:
+			velocity.y += 1.2 * gravity * delta
 	else:
 		was_in_air = false
 	
-	if movement_locked:
+	if DialogueDisplay.player_frozen:
 		velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
 		move_and_slide()
 		return
@@ -53,6 +63,8 @@ func _physics_process(delta):
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+	if velocity.y < 0 and Input.is_action_just_released("jump"):
+		velocity.y /= 2
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -86,5 +98,12 @@ func animate() -> void:
 		else:
 			animation_state.travel("Anim_Edwin_Idle")
 	if DialogueDisplay.currently_talking == "Edwin":
-		animation_state.travel("Anim_Edwin/Talk")
+		animation_state.travel("Anim_Edwin_Talk")
 
+
+func update_bar() -> void:
+	Save.savedata.health = clamp(Save.savedata.health, 0, 16)
+	healthbar.value = Save.savedata.health * 4
+	var healthbar_offset : float = healthbar.position.y + healthbar.size.y
+	health_collider.polygon[0].y = -healthbar.value + healthbar_offset
+	health_collider.polygon[1].y = -healthbar.value + healthbar_offset
