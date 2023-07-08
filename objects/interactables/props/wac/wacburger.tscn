@@ -1,7 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://d173kw5ug5niv"]
+[gd_scene load_steps=7 format=3 uid="uid://d173kw5ug5niv"]
 
 [ext_resource type="PackedScene" uid="uid://ht54ul0deq8n" path="res://objects/interactables/props/propbase.tscn" id="1_o8084"]
 [ext_resource type="Texture2D" uid="uid://bb3vopmsxhunm" path="res://assets/graphics/props/Props_Spritesheet.png" id="2_3bgy6"]
+[ext_resource type="Script" path="res://objects/resources/interaction.gd" id="3_nsel4"]
+[ext_resource type="Resource" uid="uid://dj4ss2ce2jfkc" path="res://assets/interactions/characters/player.tres" id="4_eyg68"]
+
+[sub_resource type="Resource" id="Resource_enp0j"]
+script = ExtResource("3_nsel4")
+disable_on_interact = false
+speakers = Array[Object]([null, ExtResource("4_eyg68")])
+speaker_order = PackedInt32Array()
+dialogue = PackedStringArray()
+changes_health = true
+health_change = -1
+status_effect = "Loving it"
+inventory = ""
+required_inventory = PackedStringArray()
+signals = PackedStringArray()
+signal_on = PackedInt32Array()
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_di2jy"]
 
 [node name="mcds-burger" instance=ExtResource("1_o8084")]
 position = Vector2(0, -16)
@@ -9,5 +27,10 @@ texture = ExtResource("2_3bgy6")
 hframes = 16
 vframes = 16
 frame = 83
-interactions = Array[Resource("res://objects/resources/interaction.gd")]([null])
+interactions = Array[ExtResource("3_nsel4")]([SubResource("Resource_enp0j")])
 obj_name = "Wacburger"
+obj_colour = Color(1, 0.780392, 0.172549, 1)
+
+[node name="interactablebase" parent="." index="0"]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_di2jy")

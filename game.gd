@@ -7,6 +7,7 @@ extends Node
 #@onready var loader := ResourceLoader
 
 var curr_scene : Node
+var curr_scene_path: String
 
 signal scene_spawned(scene: String)
 
@@ -38,6 +39,7 @@ func change_scene(scene: String, scene_data: Dictionary = {} ,trans := SCENE_TRA
 	
 	curr_scene_hold.add_child(scn)
 	curr_scene = scn
+	curr_scene_path = scene
 	print(scn)
 	
 	match trans:
@@ -56,3 +58,7 @@ func handle_scene_done(info: Dictionary) -> void:
 		change_scene(info.scene, info, info.transition)
 	else:
 		change_scene(info.scene, info)
+
+
+func _on_pause_menu_retry() -> void:
+	change_scene(curr_scene_path)

@@ -1,13 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://klrb50lqqiib"]
+[gd_scene load_steps=4 format=3 uid="uid://klrb50lqqiib"]
 
 [ext_resource type="PackedScene" uid="uid://ht54ul0deq8n" path="res://objects/interactables/props/propbase.tscn" id="1_i0s4c"]
 [ext_resource type="Texture2D" uid="uid://bb3vopmsxhunm" path="res://assets/graphics/props/Props_Spritesheet.png" id="2_parec"]
 
-[node name="mcds-burger" instance=ExtResource("1_i0s4c")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_dl62q"]
+
+[node name="wacfries" instance=ExtResource("1_i0s4c")]
 position = Vector2(0, -16)
 texture = ExtResource("2_parec")
 hframes = 16
 vframes = 16
-frame = 83
+frame = 84
 interactions = Array[Resource("res://objects/resources/interaction.gd")]([null])
-obj_name = "Wacburger"
+obj_name = "Wacfries"
+obj_colour = Color(1, 0.780392, 0.172549, 1)
+
+[node name="interactablebase" parent="." index="0"]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_dl62q")

@@ -1,15 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://svpvnaxkd0jd"]
+[gd_scene load_steps=7 format=3 uid="uid://svpvnaxkd0jd"]
 
 [ext_resource type="AudioStream" uid="uid://if1tuimiyuv0" path="res://assets/music/overture.mp3" id="1_3pprf"]
 [ext_resource type="Script" path="res://singletons/music.gd" id="1_hggfe"]
+[ext_resource type="AudioStream" uid="uid://vhnt1axvttpn" path="res://assets/music/Main_music_theme_fin_2.ogg" id="2_705xi"]
 [ext_resource type="AudioStream" uid="uid://b7nfwxc80xkru" path="res://assets/music/Menue_music_fin_1.ogg" id="3_1lngd"]
 [ext_resource type="AudioStream" uid="uid://c5o25imxsqin8" path="res://assets/music/mcr_low.ogg" id="3_gkhhx"]
+[ext_resource type="AudioStream" uid="uid://b2v8tjb4pcw1s" path="res://assets/music/Elevator_music.ogg" id="5_isot1"]
 
 [node name="Music" type="Node"]
 script = ExtResource("1_hggfe")
 
 [node name="main" type="AudioStreamPlayer" parent="."]
 process_mode = 3
+stream = ExtResource("2_705xi")
 autoplay = true
 bus = &"music"
 
@@ -25,6 +28,7 @@ bus = &"music"
 
 [node name="elevator" type="AudioStreamPlayer" parent="."]
 process_mode = 3
+stream = ExtResource("5_isot1")
 bus = &"music"
 
 [node name="mcr" type="AudioStreamPlayer" parent="."]

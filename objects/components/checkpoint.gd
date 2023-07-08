@@ -19,3 +19,16 @@ func _process(delta: float) -> void:
 		marker_2d.position = spawn_offset
 	else:
 		set_process(false)
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if not body.is_in_group("Player"):
+		return
+	set_savedata_values()
+	
+
+func set_savedata_values() -> void:
+	if not get_tree().current_scene.is_in_group("game"):
+		return
+	Save.savedata.room = get_tree().current_scene.curr_scene_path
+	Save.savedata.checkpoint = get_parent().get_children().find(self)

@@ -17,6 +17,8 @@ var jump_to_end = false
 signal speaker_changed(speaker: String)
 signal interaction_finished
 
+signal dialogue_signal(name: String)
+
 signal setup_done
 signal line_done
 signal next_line
@@ -98,5 +100,8 @@ func setup_for_speaker() -> void:
 	animation_player.play("show_name")
 	await get_tree().process_frame
 	emit_signal("setup_done")
-	
 
+
+func handle_signals() -> void:
+	if index in interaction.signal_on:
+		emit_signal("dialogue_signal", interaction.signals[interaction.signal_on.find(index)])

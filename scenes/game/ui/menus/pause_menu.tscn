@@ -328,6 +328,13 @@ focus_neighbor_top = NodePath("../MainMenu")
 focus_neighbor_bottom = NodePath("../Options")
 text = "Resume"
 
+[node name="Retry" type="Button" parent="PauseMenu/PauseMenu"]
+layout_mode = 2
+size_flags_vertical = 6
+focus_neighbor_top = NodePath("../MainMenu")
+focus_neighbor_bottom = NodePath("../Options")
+text = "Retry From Checkpoint"
+
 [node name="Options" type="Button" parent="PauseMenu/PauseMenu"]
 layout_mode = 2
 size_flags_vertical = 6
@@ -384,6 +391,7 @@ libraries = {
 }
 
 [connection signal="pressed" from="PauseMenu/PauseMenu/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="PauseMenu/PauseMenu/Retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="PauseMenu/PauseMenu/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="PauseMenu/PauseMenu/MainMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="return_to_menu" from="OptionsMenu/options_menu_options" to="." method="_on_options_menu_options_return_to_menu"]

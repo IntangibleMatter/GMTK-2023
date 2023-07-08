@@ -7,6 +7,8 @@ extends GameScene
 @onready var options_menu_options: Control = $OptionsMenu/options_menu_options
 @onready var game : Node = get_tree().current_scene
 
+signal retry
+
 func _ready() -> void:
 	resume.grab_focus()
 
@@ -52,3 +54,7 @@ func _on_main_menu_pressed() -> void:
 	emit_signal("done", {"scene": "res://scenes/game/ui/menus/main_menu.tscn"})
 	print("WEDIOFJFLS")
 	hide_menu()
+
+
+func _on_retry_pressed() -> void:
+	emit_signal("retry")

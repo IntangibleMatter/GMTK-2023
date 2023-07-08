@@ -9,4 +9,7 @@ script = ExtResource("1_qns3f")
 debug_color = Color(0.941176, 0, 0.603922, 0.419608)
 
 [node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, 32)
 gizmo_extents = 16.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

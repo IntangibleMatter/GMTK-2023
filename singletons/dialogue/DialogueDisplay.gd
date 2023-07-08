@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+signal dialogue_signal(name: String)
+
 @onready var dialogue: Control = $Dialogue
 
 var currently_talking : String
