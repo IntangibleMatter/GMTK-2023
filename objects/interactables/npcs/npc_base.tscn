@@ -15,3 +15,5 @@ position = Vector2(0, -8)
 [node name="InteractableBase" type="Area2D" parent="."]
 position = Vector2(0, -24)
 script = ExtResource("2_1cylm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
