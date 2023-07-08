@@ -2,7 +2,7 @@
 
 [ext_resource type="AudioStream" uid="uid://if1tuimiyuv0" path="res://assets/music/overture.mp3" id="1_3pprf"]
 [ext_resource type="Script" path="res://singletons/music.gd" id="1_hggfe"]
-[ext_resource type="AudioStream" uid="uid://ddhbm8l2u5tl8" path="res://assets/music/mcr.ogg" id="3_lp6xh"]
+[ext_resource type="AudioStream" uid="uid://c5o25imxsqin8" path="res://assets/music/mcr_low.ogg" id="3_gkhhx"]
 
 [node name="Music" type="Node"]
 script = ExtResource("1_hggfe")
@@ -22,5 +22,5 @@ bus = &"music"
 bus = &"music"
 
 [node name="mcr" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_lp6xh")
+stream = ExtResource("3_gkhhx")
 bus = &"music"
