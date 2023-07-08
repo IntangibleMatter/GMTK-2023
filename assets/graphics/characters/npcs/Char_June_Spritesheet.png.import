@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dr7bt7d5vt1ne"
-path="res://.godot/imported/Char_Nurse_Sprite.png-ec5925cafd2643cf60760f819fbf12c1.ctex"
+uid="uid://ytqaxcophet5"
+path="res://.godot/imported/Char_June_Spritesheet.png-5b3f32216d918a5a417b9dc8b52df6dc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/characters/npcs/Char_Nurse_Sprite.png"
-dest_files=["res://.godot/imported/Char_Nurse_Sprite.png-ec5925cafd2643cf60760f819fbf12c1.ctex"]
+source_file="res://assets/graphics/characters/npcs/Char_June_Spritesheet.png"
+dest_files=["res://.godot/imported/Char_June_Spritesheet.png-5b3f32216d918a5a417b9dc8b52df6dc.ctex"]
 
 [params]
 
