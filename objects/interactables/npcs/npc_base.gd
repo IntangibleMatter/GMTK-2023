@@ -1,3 +1,4 @@
+class_name NpcBase
 extends CharacterBody2D
 
 @export var interaction: Interaction
