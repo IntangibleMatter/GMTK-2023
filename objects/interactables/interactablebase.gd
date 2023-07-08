@@ -26,6 +26,10 @@ func _process(delta):
 
 func _input(event):
 	if used: return
+	if not interaction.required_inventory.is_empty():
+			for item in interaction.required_inventory:
+				if not item in Save.savedata.inventory:
+					return
 	if event.is_action_pressed("interact"):
 		if has_overlapping_bodies():
 			for body in get_overlapping_bodies():

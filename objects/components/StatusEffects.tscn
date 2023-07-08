@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bt4f6o0lbuk10"]
+[gd_scene load_steps=4 format=3 uid="uid://bt4f6o0lbuk10"]
 
 [ext_resource type="FontFile" uid="uid://blkjmhcosyd5r" path="res://assets/fonts/Metropolis-Bold.otf" id="1_1ly7g"]
 [ext_resource type="Script" path="res://objects/components/StatusEffects.gd" id="1_q5ha3"]
+[ext_resource type="AudioStream" uid="uid://md01yvgsdfss" path="res://assets/sfx/gameplay/status.wav" id="3_bs74o"]
 
 [node name="StatusEffects" type="CanvasLayer"]
 script = ExtResource("1_q5ha3")
@@ -26,5 +27,6 @@ scroll_active = false
 scroll_following = true
 
 [node name="NewStatusSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_bs74o")
 max_polyphony = 8
 bus = &"sfx"
