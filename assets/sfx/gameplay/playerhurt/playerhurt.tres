@@ -1,0 +1,65 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=21 format=3 uid="uid://kxf6hwnqn5e0"]
+
+[ext_resource type="AudioStream" uid="uid://c530dnb0nda05" path="res://assets/sfx/gameplay/playerhurt/1.wav" id="1_weod4"]
+[ext_resource type="AudioStream" uid="uid://bnpeldaa426cc" path="res://assets/sfx/gameplay/playerhurt/2.wav" id="2_1omtx"]
+[ext_resource type="AudioStream" uid="uid://b68w1x4eityg1" path="res://assets/sfx/gameplay/playerhurt/11.wav" id="3_s1jdk"]
+[ext_resource type="AudioStream" uid="uid://blhgtegu2tjm4" path="res://assets/sfx/gameplay/playerhurt/12.wav" id="4_jw0f1"]
+[ext_resource type="AudioStream" uid="uid://bufkw54cc5u71" path="res://assets/sfx/gameplay/playerhurt/13.wav" id="5_um54h"]
+[ext_resource type="AudioStream" uid="uid://cqujjchb3n8c3" path="res://assets/sfx/gameplay/playerhurt/14.wav" id="6_n8s6s"]
+[ext_resource type="AudioStream" uid="uid://dsgrbofultpqm" path="res://assets/sfx/gameplay/playerhurt/15.wav" id="7_jxrwf"]
+[ext_resource type="AudioStream" uid="uid://cp2fgr0xxbe1w" path="res://assets/sfx/gameplay/playerhurt/16.wav" id="8_8w3xg"]
+[ext_resource type="AudioStream" uid="uid://bjk5set7vbokf" path="res://assets/sfx/gameplay/playerhurt/17.wav" id="9_fei6k"]
+[ext_resource type="AudioStream" uid="uid://dl6pgm6oj0uei" path="res://assets/sfx/gameplay/playerhurt/18.wav" id="10_emuex"]
+[ext_resource type="AudioStream" uid="uid://cead6jnp5irwf" path="res://assets/sfx/gameplay/playerhurt/19.wav" id="11_yw2v1"]
+[ext_resource type="AudioStream" uid="uid://clvkso65y83ab" path="res://assets/sfx/gameplay/playerhurt/20.wav" id="12_w4nfl"]
+[ext_resource type="AudioStream" uid="uid://bmjhwdf22n3mf" path="res://assets/sfx/gameplay/playerhurt/3.wav" id="13_wdmlc"]
+[ext_resource type="AudioStream" uid="uid://3rkuwrhumunl" path="res://assets/sfx/gameplay/playerhurt/4.wav" id="14_7ahyl"]
+[ext_resource type="AudioStream" uid="uid://diiq48d4c0pnf" path="res://assets/sfx/gameplay/playerhurt/5.wav" id="15_c4iji"]
+[ext_resource type="AudioStream" uid="uid://bhfk4kmdiwghf" path="res://assets/sfx/gameplay/playerhurt/6.wav" id="16_nhcfy"]
+[ext_resource type="AudioStream" uid="uid://dw1egawiulspe" path="res://assets/sfx/gameplay/playerhurt/7.wav" id="17_xivtd"]
+[ext_resource type="AudioStream" uid="uid://b4a64wpsutxme" path="res://assets/sfx/gameplay/playerhurt/8.wav" id="18_i4752"]
+[ext_resource type="AudioStream" uid="uid://ddnilj1l2ceq7" path="res://assets/sfx/gameplay/playerhurt/9.wav" id="19_d3sq0"]
+[ext_resource type="AudioStream" uid="uid://bkwbeciux2hc6" path="res://assets/sfx/gameplay/playerhurt/10.wav" id="20_duhid"]
+
+[resource]
+streams_count = 20
+stream_0/stream = ExtResource("1_weod4")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_1omtx")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("13_wdmlc")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("14_7ahyl")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("15_c4iji")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("16_nhcfy")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("17_xivtd")
+stream_6/weight = 1.0
+stream_7/stream = ExtResource("18_i4752")
+stream_7/weight = 1.0
+stream_8/stream = ExtResource("19_d3sq0")
+stream_8/weight = 1.0
+stream_9/stream = ExtResource("20_duhid")
+stream_9/weight = 1.0
+stream_10/stream = ExtResource("3_s1jdk")
+stream_10/weight = 1.0
+stream_11/stream = ExtResource("4_jw0f1")
+stream_11/weight = 1.0
+stream_12/stream = ExtResource("5_um54h")
+stream_12/weight = 1.0
+stream_13/stream = ExtResource("6_n8s6s")
+stream_13/weight = 1.0
+stream_14/stream = ExtResource("7_jxrwf")
+stream_14/weight = 1.0
+stream_15/stream = ExtResource("8_8w3xg")
+stream_15/weight = 1.0
+stream_16/stream = ExtResource("9_fei6k")
+stream_16/weight = 1.0
+stream_17/stream = ExtResource("10_emuex")
+stream_17/weight = 1.0
+stream_18/stream = ExtResource("11_yw2v1")
+stream_18/weight = 1.0
+stream_19/stream = ExtResource("12_w4nfl")
+stream_19/weight = 1.0

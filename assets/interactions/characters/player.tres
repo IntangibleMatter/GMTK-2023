@@ -1,8 +1,39 @@
-[gd_resource type="Resource" script_class="Character" load_steps=2 format=3 uid="uid://dj4ss2ce2jfkc"]
+[gd_resource type="Resource" script_class="Character" load_steps=12 format=3 uid="uid://dj4ss2ce2jfkc"]
 
 [ext_resource type="Script" path="res://objects/resources/speaker.gd" id="1_665ef"]
+[ext_resource type="AudioStream" uid="uid://ck3bgq8whrqm3" path="res://assets/sfx/dialogue/player/1.wav" id="2_cygas"]
+[ext_resource type="AudioStream" uid="uid://et03cl4eiwr3" path="res://assets/sfx/dialogue/player/2.wav" id="3_p6stq"]
+[ext_resource type="AudioStream" uid="uid://bk8sh7u7g8r52" path="res://assets/sfx/dialogue/player/3.wav" id="4_7ech6"]
+[ext_resource type="AudioStream" uid="uid://bstocove055bw" path="res://assets/sfx/dialogue/player/4.wav" id="5_pbgbf"]
+[ext_resource type="AudioStream" uid="uid://nvlopc8d8ve3" path="res://assets/sfx/dialogue/player/5.wav" id="6_hveio"]
+[ext_resource type="AudioStream" uid="uid://ca6vh7l8qftnm" path="res://assets/sfx/dialogue/player/6.wav" id="17_lvdoy"]
+[ext_resource type="AudioStream" uid="uid://b0vy5xburh0i5" path="res://assets/sfx/dialogue/player/7.wav" id="18_gi4rt"]
+[ext_resource type="AudioStream" uid="uid://osui32s6fu7o" path="res://assets/sfx/dialogue/player/8.wav" id="19_ij2c6"]
+[ext_resource type="AudioStream" uid="uid://ytpy6up65h1n" path="res://assets/sfx/dialogue/player/9.wav" id="20_6yyt8"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_l72l1"]
+streams_count = 9
+stream_0/stream = ExtResource("2_cygas")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("3_p6stq")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("4_7ech6")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("5_pbgbf")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("6_hveio")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("17_lvdoy")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("18_gi4rt")
+stream_6/weight = 1.0
+stream_7/stream = ExtResource("19_ij2c6")
+stream_7/weight = 1.0
+stream_8/stream = ExtResource("20_6yyt8")
+stream_8/weight = 1.0
 
 [resource]
 script = ExtResource("1_665ef")
-name = "Barclay"
+name = "Edwin"
+sound = SubResource("AudioStreamRandomizer_l72l1")
 colour = Color(0, 0.937255, 0.937255, 1)
