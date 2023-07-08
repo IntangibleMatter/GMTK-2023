@@ -19,6 +19,8 @@ dialogue = PackedStringArray("hey", "this is a test", "it sure is", "yep", "i\'m
 changes_health = true
 health_change = -1
 status_effect = "Familial Love"
+inventory = ""
+required_inventory = PackedStringArray()
 
 [node name="testinteractable" instance=ExtResource("1_2a5k0")]
 shape = SubResource("RectangleShape2D_7e4s0")

@@ -15,6 +15,7 @@ extends GameScene
 
 func _ready() -> void:
 	play_button.grab_focus()
+	Music.play(Music.SONGS.MENU)
 	if Save.savedata.beaten or not Save.savedata.save_exists:
 		continuebutton.disabled = true
 

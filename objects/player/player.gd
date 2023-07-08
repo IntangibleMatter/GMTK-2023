@@ -11,6 +11,7 @@ var health_scale_factor := 4
 var movement_locked := false
 var was_in_air: bool = false
 
+var health_anim : int = 0
 
 @onready var animation_player = $AnimationPlayer
 @onready var interaction_area = $InteractionArea
@@ -60,6 +61,7 @@ func _physics_process(delta):
 		if velocity.y <= 0:
 			velocity.y += gravity * delta
 		else:
+			#squash(Vector2(0.95, 1.05), 0.1, true)
 			velocity.y += 1.2 * gravity * delta
 	else:
 		was_in_air = false
@@ -71,6 +73,7 @@ func _physics_process(delta):
 	
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
+		#squash(Vector2(0.9, 1.1), 0.1)
 		velocity.y = JUMP_VELOCITY
 	if velocity.y < 0 and Input.is_action_just_released("jump"):
 		velocity.y /= 2
@@ -97,8 +100,18 @@ func animate() -> void:
 	elif velocity.x > 0:
 		sprite.flip_h = false
 	
+	if health_anim < 0:
+		animation_state.travel("Anim_Edwin_Hit")
+		health_anim = 0
+		return
+	elif health_anim > 0:
+		animation_state.travel("Anim_Edwin_Healed")
+		health_anim = 0
+		return
+	
 	if is_on_floor() and was_in_air:
 		animation_state.travel("Anim_Edwin_Land")
+		#squash(Vector2.ONE, 0, true)
 	elif not is_on_floor():
 		animation_state.travel("Anim_Edwin_Jump")
 	else:
@@ -110,6 +123,17 @@ func animate() -> void:
 		animation_state.travel("Anim_Edwin_Talk")
 
 
+#func squash(by: Vector2, dur: float, hold: bool = false) -> void:
+#	return
+#	var tween = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT)
+#	tween.tween_property(sprite, "scale", by, 0.05)
+#	if hold:
+#		return
+#	else:
+#		await get_tree().create_timer(dur).timeout
+#	tween.tween_property(sprite, "scale", Vector2.ONE, 0.05)
+
+
 func update_bar() -> void:
 #	healthbar.value = Save.savedata.health * 4
 	var healthbar_offset : float = healthbar.position.y + healthbar.size.y
@@ -118,8 +142,7 @@ func update_bar() -> void:
 
 
 func health_change(by: int) -> void:
-	if sign(by) < 0:
-		hurtsound.play()
+	health_anim = by
 	var tween := get_tree().create_tween().set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(healthbar, "value", Save.savedata.health * health_scale_factor, 0.2)
 
