@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfwwaw5kgdwmb"]
+[gd_scene load_steps=6 format=3 uid="uid://cfwwaw5kgdwmb"]
 
 [ext_resource type="Script" path="res://objects/player/player.gd" id="1_707o4"]
-[ext_resource type="Texture2D" uid="uid://buc7ftvcglmfy" path="res://assets/graphics/characters/player/temp.png" id="2_d84bc"]
+[ext_resource type="AnimationLibrary" uid="uid://ci7ggioqwrdgn" path="res://assets/graphics/characters/player/Anim_Edwin.res" id="2_drcfl"]
+[ext_resource type="Texture2D" uid="uid://c0188gqdao6c2" path="res://assets/graphics/characters/player/C_Edwin_Spritesheet.png" id="3_mv8lm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wxnkr"]
 custom_solver_bias = 1.0
@@ -26,7 +27,12 @@ shape = SubResource("RectangleShape2D_do5vm")
 debug_color = Color(0.635294, 0.529412, 0, 0.419608)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"Anim_Edwin": ExtResource("2_drcfl")
+}
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -16)
-texture = ExtResource("2_d84bc")
+texture = ExtResource("3_mv8lm")
+hframes = 4
+vframes = 3
