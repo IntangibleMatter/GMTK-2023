@@ -1,5 +1,126 @@
-[gd_scene load_steps=2 format=3 uid="uid://bfp48c1krf5xm"]
+[gd_scene load_steps=10 format=3 uid="uid://bfp48c1krf5xm"]
 
 [ext_resource type="PackedScene" uid="uid://bixes7rolohr7" path="res://objects/interactables/npcs/npc_base.tscn" id="1_y65ki"]
+[ext_resource type="Texture2D" uid="uid://qjechjtm7jyy" path="res://assets/graphics/characters/npcs/Char_Maid_Sprite.png" id="2_i7uat"]
+
+[sub_resource type="Animation" id="Animation_8xu6u"]
+resource_name = "Idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_gb20w"]
+resource_name = "Talk"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 2]
+}
+
+[sub_resource type="Animation" id="Animation_x76ht"]
+resource_name = "Walk"
+length = 0.4
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_ddcu7"]
+resource_name = "BeatWalk"
+length = 0.4
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [8, 9, 10]
+}
+
+[sub_resource type="Animation" id="Animation_lgc5e"]
+resource_name = "BeatWalkWack"
+length = 0.4
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [12, 13, 14]
+}
+
+[sub_resource type="Animation" id="Animation_hf3bn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jb5p1"]
+_data = {
+"BeatWalk": SubResource("Animation_ddcu7"),
+"BeatWalkWack": SubResource("Animation_lgc5e"),
+"Idle": SubResource("Animation_8xu6u"),
+"RESET": SubResource("Animation_hf3bn"),
+"Talk": SubResource("Animation_gb20w"),
+"Walk": SubResource("Animation_x76ht")
+}
 
 [node name="Nanny" instance=ExtResource("1_y65ki")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_i7uat")
+hframes = 4
+vframes = 4
+frame = 1
+
+[node name="AnimationPlayer" parent="." index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_jb5p1")
+}
