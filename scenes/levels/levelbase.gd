@@ -24,3 +24,7 @@ func _ready() -> void:
 #			player_flip_h = false
 #			get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)\
 #			.tween_property(camera_2d, "offset:x", 16, 0.2)
+
+
+func _on_level_exit_level_complete(level: String) -> void:
+	emit_signal("done", {"scene": level})

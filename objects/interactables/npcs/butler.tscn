@@ -103,6 +103,7 @@ size = Vector2(16, 2)
 [sub_resource type="CircleShape2D" id="CircleShape2D_m7ias"]
 
 [node name="Butler" instance=ExtResource("1_m4fba")]
+nam = "Jeeves"
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_jepct")
