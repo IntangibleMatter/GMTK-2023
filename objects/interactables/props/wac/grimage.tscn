@@ -1,12 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://cuyqo8k812gvk"]
+[gd_scene load_steps=7 format=3 uid="uid://cuyqo8k812gvk"]
 
 [ext_resource type="PackedScene" uid="uid://ht54ul0deq8n" path="res://objects/interactables/props/propbase.tscn" id="1_tlfj0"]
+[ext_resource type="Shader" path="res://assets/shaders/highlighted.gdshader" id="2_1tg2j"]
 [ext_resource type="Texture2D" uid="uid://bb3vopmsxhunm" path="res://assets/graphics/props/Props_Spritesheet.png" id="2_b7hy8"]
 [ext_resource type="Resource" uid="uid://2w24eyrj5hhv" path="res://assets/interactions/miscitems/grimage1.tres" id="3_cdp15"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_orkk2"]
+resource_local_to_scene = true
+shader = ExtResource("2_1tg2j")
+shader_parameter/color = Vector4(1, 1, 1, 1)
+shader_parameter/flashstate = 0.0
+shader_parameter/glowfactor = 0.3
+shader_parameter/timefactor = 4.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_2crtt"]
+radius = 20.0
 
 [node name="mcds-shake" instance=ExtResource("1_tlfj0")]
+material = SubResource("ShaderMaterial_orkk2")
 position = Vector2(0, -16)
 texture = ExtResource("2_b7hy8")
 hframes = 16

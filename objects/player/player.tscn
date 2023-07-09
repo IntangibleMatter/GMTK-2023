@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cfwwaw5kgdwmb"]
+[gd_scene load_steps=43 format=3 uid="uid://cfwwaw5kgdwmb"]
 
 [ext_resource type="Script" path="res://objects/player/player.gd" id="1_707o4"]
 [ext_resource type="AnimationLibrary" uid="uid://4743sfe51a53" path="res://assets/graphics/characters/player/Anim_Edwin.tres" id="2_n0ui5"]
@@ -51,6 +51,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [Vector4(1, 1, 1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2utxc"]
 _data = {
@@ -99,6 +111,9 @@ animation = &"Anim_Edwin/Talk"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pddpb"]
 animation = &"Anim_Edwin/Walk"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_45vxu"]
+animation = &"Anim_Edwin/dance"
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ehvsv"]
 advance_mode = 2
 
@@ -142,6 +157,11 @@ priority = 5
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_it5gp"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o5nbw"]
+priority = 30
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rrsjp"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_6bop7"]
 states/Anim_Edwin_Healed/node = SubResource("AnimationNodeAnimation_jphsj")
 states/Anim_Edwin_Healed/position = Vector2(290, -94)
@@ -157,10 +177,12 @@ states/Anim_Edwin_Talk/node = SubResource("AnimationNodeAnimation_ckvm0")
 states/Anim_Edwin_Talk/position = Vector2(280, 307)
 states/Anim_Edwin_Walk/node = SubResource("AnimationNodeAnimation_pddpb")
 states/Anim_Edwin_Walk/position = Vector2(554, 292)
+states/Anim_Edwin_dance/node = SubResource("AnimationNodeAnimation_45vxu")
+states/Anim_Edwin_dance/position = Vector2(170, -49.541)
 states/End/position = Vector2(1065, 154)
 states/Start/position = Vector2(153, 92)
-transitions = ["Start", "Anim_Edwin_Idle", SubResource("AnimationNodeStateMachineTransition_ehvsv"), "Anim_Edwin_Idle", "Anim_Edwin_Walk", SubResource("AnimationNodeStateMachineTransition_6miya"), "Anim_Edwin_Idle", "Anim_Edwin_Jump", SubResource("AnimationNodeStateMachineTransition_3rcdt"), "Anim_Edwin_Walk", "Anim_Edwin_Jump", SubResource("AnimationNodeStateMachineTransition_rxtbo"), "Anim_Edwin_Jump", "Anim_Edwin_Land", SubResource("AnimationNodeStateMachineTransition_whb6h"), "Anim_Edwin_Land", "Anim_Edwin_Walk", SubResource("AnimationNodeStateMachineTransition_5pwwd"), "Anim_Edwin_Walk", "Anim_Edwin_Idle", SubResource("AnimationNodeStateMachineTransition_ns32v"), "Anim_Edwin_Idle", "Anim_Edwin_Talk", SubResource("AnimationNodeStateMachineTransition_pj1bv"), "Anim_Edwin_Talk", "Anim_Edwin_Idle", SubResource("AnimationNodeStateMachineTransition_wdmi0"), "Anim_Edwin_Land", "Anim_Edwin_Jump", SubResource("AnimationNodeStateMachineTransition_iyrfx"), "Anim_Edwin_Land", "Anim_Edwin_Idle", SubResource("AnimationNodeStateMachineTransition_is0y1"), "Anim_Edwin_Idle", "Anim_Edwin_Healed", SubResource("AnimationNodeStateMachineTransition_mvrd7"), "Anim_Edwin_Idle", "Anim_Edwin_Hit", SubResource("AnimationNodeStateMachineTransition_3qnx7"), "Anim_Edwin_Hit", "Anim_Edwin_Idle", SubResource("AnimationNodeStateMachineTransition_v2cmb"), "Anim_Edwin_Healed", "Anim_Edwin_Idle", SubResource("AnimationNodeStateMachineTransition_wtnja"), "Anim_Edwin_Jump", "Anim_Edwin_Hit", SubResource("AnimationNodeStateMachineTransition_biwxl"), "Anim_Edwin_Jump", "Anim_Edwin_Healed", SubResource("AnimationNodeStateMachineTransition_it5gp")]
-graph_offset = Vector2(78, -149.541)
+transitions = ["Start", "Anim_Edwin_Idle", SubResource("AnimationNodeStateMachineTransition_ehvsv"), "Anim_Edwin_Idle", "Anim_Edwin_Walk", SubResource("AnimationNodeStateMachineTransition_6miya"), "Anim_Edwin_Idle", "Anim_Edwin_Jump", SubResource("AnimationNodeStateMachineTransition_3rcdt"), "Anim_Edwin_Walk", "Anim_Edwin_Jump", SubResource("AnimationNodeStateMachineTransition_rxtbo"), "Anim_Edwin_Jump", "Anim_Edwin_Land", SubResource("AnimationNodeStateMachineTransition_whb6h"), "Anim_Edwin_Land", "Anim_Edwin_Walk", SubResource("AnimationNodeStateMachineTransition_5pwwd"), "Anim_Edwin_Walk", "Anim_Edwin_Idle", SubResource("AnimationNodeStateMachineTransition_ns32v"), "Anim_Edwin_Idle", "Anim_Edwin_Talk", SubResource("AnimationNodeStateMachineTransition_pj1bv"), "Anim_Edwin_Talk", "Anim_Edwin_Idle", SubResource("AnimationNodeStateMachineTransition_wdmi0"), "Anim_Edwin_Land", "Anim_Edwin_Jump", SubResource("AnimationNodeStateMachineTransition_iyrfx"), "Anim_Edwin_Land", "Anim_Edwin_Idle", SubResource("AnimationNodeStateMachineTransition_is0y1"), "Anim_Edwin_Idle", "Anim_Edwin_Healed", SubResource("AnimationNodeStateMachineTransition_mvrd7"), "Anim_Edwin_Idle", "Anim_Edwin_Hit", SubResource("AnimationNodeStateMachineTransition_3qnx7"), "Anim_Edwin_Hit", "Anim_Edwin_Idle", SubResource("AnimationNodeStateMachineTransition_v2cmb"), "Anim_Edwin_Healed", "Anim_Edwin_Idle", SubResource("AnimationNodeStateMachineTransition_wtnja"), "Anim_Edwin_Jump", "Anim_Edwin_Hit", SubResource("AnimationNodeStateMachineTransition_biwxl"), "Anim_Edwin_Jump", "Anim_Edwin_Healed", SubResource("AnimationNodeStateMachineTransition_it5gp"), "Anim_Edwin_Idle", "Anim_Edwin_dance", SubResource("AnimationNodeStateMachineTransition_o5nbw"), "Anim_Edwin_dance", "Anim_Edwin_Idle", SubResource("AnimationNodeStateMachineTransition_rrsjp")]
+graph_offset = Vector2(67, -134.541)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pb1g1"]
 atlas = ExtResource("4_d732w")
@@ -199,6 +221,7 @@ position = Vector2(0, -16)
 texture = ExtResource("3_w3g24")
 hframes = 4
 vframes = 3
+frame = 10
 script = SubResource("GDScript_kjsox")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]

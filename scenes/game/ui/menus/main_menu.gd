@@ -53,6 +53,7 @@ func _on_quit_button_pressed():
 
 func _on_play_button_pressed():
 	Save.new_game()
+#	await Save.new_game_created
 	emit_signal("done", {"scene": Save.savedata.room})
 
 

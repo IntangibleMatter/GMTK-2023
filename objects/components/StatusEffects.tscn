@@ -25,6 +25,7 @@ bbcode_enabled = true
 text = "[wave amp=8][color=red]"
 scroll_active = false
 scroll_following = true
+visible_characters_behavior = 1
 
 [node name="NewStatusSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_bs74o")

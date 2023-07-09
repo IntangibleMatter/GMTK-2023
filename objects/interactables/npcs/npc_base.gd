@@ -4,7 +4,8 @@ extends CharacterBody2D
 @export var nam : String
 @export var interaction: Interaction
 
-@onready var interactable_base: Area2D = $InteractableBase
+@onready var interactable_base: Area2D = $interactablebase
+
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -31,11 +32,12 @@ func handle_signal(signame: String) -> void:
 
 
 func _on_interactablebase_current_interactable(me) -> void:
+	return
 	var tween := get_tree().create_tween()
-	if me:
-		tween.tween_property(sprite_2d, "material:shader_parameter/flashstate", 1, 0.1)
-	else:
-		tween.tween_property(sprite_2d, "material:shader_parameter/flashstate", 0, 0.1)
+#	if me:
+#		tween.tween_property(sprite_2d, "material:shader_parameter/flashstate", 1, 0.1)
+#	else:
+#		tween.tween_property(sprite_2d, "material:shader_parameter/flashstate", 0, 0.1)
 
 func anim_shit() -> void:
 	if DialogueDisplay.currently_talking == nam:

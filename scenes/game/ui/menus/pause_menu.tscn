@@ -324,30 +324,22 @@ vertical_alignment = 1
 [node name="Resume" type="Button" parent="PauseMenu/PauseMenu"]
 layout_mode = 2
 size_flags_vertical = 6
-focus_neighbor_top = NodePath("../MainMenu")
-focus_neighbor_bottom = NodePath("../Options")
 text = "Resume"
 
 [node name="Retry" type="Button" parent="PauseMenu/PauseMenu"]
 layout_mode = 2
 size_flags_vertical = 6
-focus_neighbor_top = NodePath("../MainMenu")
-focus_neighbor_bottom = NodePath("../Options")
 text = "Retry From Checkpoint"
 
 [node name="Options" type="Button" parent="PauseMenu/PauseMenu"]
 layout_mode = 2
 size_flags_vertical = 6
-focus_neighbor_top = NodePath("../Resume")
-focus_neighbor_bottom = NodePath("../MainMenu")
 text = "Options
 "
 
 [node name="MainMenu" type="Button" parent="PauseMenu/PauseMenu"]
 layout_mode = 2
 size_flags_vertical = 6
-focus_neighbor_top = NodePath("../Options")
-focus_neighbor_bottom = NodePath("../Resume")
 text = "Main Menu
 "
 

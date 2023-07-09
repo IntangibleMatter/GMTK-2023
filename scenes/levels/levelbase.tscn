@@ -34,6 +34,7 @@ format = 2
 [node name="StatusEffects" parent="." instance=ExtResource("4_aeojl")]
 
 [node name="player" parent="." instance=ExtResource("5_6ypqm")]
+z_index = 1
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 offset = Vector2(0, -32)

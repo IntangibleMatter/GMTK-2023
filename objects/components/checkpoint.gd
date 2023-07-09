@@ -22,8 +22,10 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
+	print("eeby")
 	if not body.is_in_group("Player"):
 		return
+	print("deeby")
 	set_savedata_values()
 
 
@@ -32,7 +34,9 @@ func get_spawn_point() -> Vector2:
 
 
 func set_savedata_values() -> void:
-	if not get_tree().current_scene.is_in_group("game"):
-		return
+	print("yooooooo")
+#	if not get_tree().current_scene.is_in_group("game"):
+#		return
 	Save.savedata.room = get_tree().current_scene.curr_scene_path
 	Save.savedata.checkpoint = get_parent().get_children().find(self)
+	Save.save_game()

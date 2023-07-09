@@ -100,6 +100,11 @@ func animate() -> void:
 	elif velocity.x > 0:
 		sprite.flip_h = false
 	
+	if Music.current_song == Music.SONGS.MCR:
+		print("dance")
+		animation_state.travel("Anim_Edwin_dance")
+		return
+	
 	if health_anim < 0:
 		animation_state.travel("Anim_Edwin_Hit")
 		health_anim = 0

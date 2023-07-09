@@ -1,10 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1b7jr5osnbn4"]
+[gd_scene load_steps=6 format=3 uid="uid://b1b7jr5osnbn4"]
 
 [ext_resource type="PackedScene" uid="uid://ht54ul0deq8n" path="res://objects/interactables/props/propbase.tscn" id="1_rv2q2"]
 [ext_resource type="Texture2D" uid="uid://bb3vopmsxhunm" path="res://assets/graphics/props/Props_Spritesheet.png" id="2_fqtuv"]
+[ext_resource type="Shader" path="res://assets/shaders/highlighted.gdshader" id="2_l83i4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d46n4"]
+resource_local_to_scene = true
+shader = ExtResource("2_l83i4")
+shader_parameter/color = Vector4(1, 1, 1, 1)
+shader_parameter/flashstate = 0.0
+shader_parameter/glowfactor = 0.3
+shader_parameter/timefactor = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sw2d8"]
+radius = 64.0
 
 [node name="propbase" instance=ExtResource("1_rv2q2")]
+material = SubResource("ShaderMaterial_d46n4")
 texture = ExtResource("2_fqtuv")
 hframes = 16
 vframes = 16
 frame = 104
+
+[node name="interactablebase" parent="." index="0"]
+shape = SubResource("CircleShape2D_sw2d8")

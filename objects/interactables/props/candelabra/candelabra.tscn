@@ -1,7 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://36lvw842uvtk"]
+[gd_scene load_steps=9 format=3 uid="uid://36lvw842uvtk"]
 
 [ext_resource type="PackedScene" uid="uid://ht54ul0deq8n" path="res://objects/interactables/props/propbase.tscn" id="1_cn4gu"]
+[ext_resource type="Shader" path="res://assets/shaders/highlighted.gdshader" id="2_1thil"]
 [ext_resource type="Texture2D" uid="uid://bb3vopmsxhunm" path="res://assets/graphics/props/Props_Spritesheet.png" id="2_ntrq2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w5kyp"]
+resource_local_to_scene = true
+shader = ExtResource("2_1thil")
+shader_parameter/color = Vector4(1, 1, 1, 1)
+shader_parameter/flashstate = 0.0
+shader_parameter/glowfactor = 0.3
+shader_parameter/timefactor = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2cent"]
+radius = 20.0
 
 [sub_resource type="Animation" id="Animation_p3y3k"]
 resource_name = "CandelabraIdle"
@@ -42,10 +54,14 @@ _data = {
 }
 
 [node name="propbase" instance=ExtResource("1_cn4gu")]
+material = SubResource("ShaderMaterial_w5kyp")
 texture = ExtResource("2_ntrq2")
 hframes = 16
 vframes = 16
 frame = 32
+
+[node name="interactablebase" parent="." index="0"]
+shape = SubResource("CircleShape2D_2cent")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 autoplay = "CandelabraIdle"

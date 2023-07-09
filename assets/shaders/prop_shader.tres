@@ -3,6 +3,7 @@
 [ext_resource type="Shader" path="res://assets/shaders/highlighted.gdshader" id="1_3ugve"]
 
 [resource]
+resource_local_to_scene = true
 shader = ExtResource("1_3ugve")
 shader_parameter/color = Vector4(1, 1, 1, 1)
 shader_parameter/flashstate = 0.0

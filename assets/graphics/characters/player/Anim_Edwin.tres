@@ -1,4 +1,4 @@
-[gd_resource type="AnimationLibrary" load_steps=9 format=3 uid="uid://4743sfe51a53"]
+[gd_resource type="AnimationLibrary" load_steps=10 format=3 uid="uid://4743sfe51a53"]
 
 [sub_resource type="Animation" id="Animation_qwso3"]
 resource_name = "Healed"
@@ -213,6 +213,23 @@ tracks/0/keys = {
 "values": [5, 6, 7, 4]
 }
 
+[sub_resource type="Animation" id="Animation_r5g8k"]
+resource_name = "dance"
+length = 0.2
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [8, 10]
+}
+
 [resource]
 _data = {
 "Healed": SubResource("Animation_qwso3"),
@@ -222,5 +239,6 @@ _data = {
 "Land": SubResource("Animation_js3s3"),
 "RESET": SubResource("Animation_k3ovf"),
 "Talk": SubResource("Animation_miah2"),
-"Walk": SubResource("Animation_e15mk")
+"Walk": SubResource("Animation_e15mk"),
+"dance": SubResource("Animation_r5g8k")
 }

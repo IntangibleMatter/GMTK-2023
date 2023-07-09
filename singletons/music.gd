@@ -36,3 +36,4 @@ func play(song: SONGS) -> void:
 		SONGS.MCR:
 			mcr.play()
 	current_song = song
+	print(current_song)

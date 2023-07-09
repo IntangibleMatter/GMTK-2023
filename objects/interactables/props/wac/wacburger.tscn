@@ -1,21 +1,27 @@
-[gd_scene load_steps=7 format=3 uid="uid://d173kw5ug5niv"]
+[gd_scene load_steps=9 format=3 uid="uid://d173kw5ug5niv"]
 
 [ext_resource type="PackedScene" uid="uid://ht54ul0deq8n" path="res://objects/interactables/props/propbase.tscn" id="1_o8084"]
 [ext_resource type="Texture2D" uid="uid://bb3vopmsxhunm" path="res://assets/graphics/props/Props_Spritesheet.png" id="2_3bgy6"]
 [ext_resource type="Script" path="res://objects/resources/interaction.gd" id="3_nsel4"]
 [ext_resource type="Resource" uid="uid://dj4ss2ce2jfkc" path="res://assets/interactions/characters/player.tres" id="4_eyg68"]
+[ext_resource type="Script" path="res://objects/resources/speaker.gd" id="5_gm5lq"]
+
+[sub_resource type="Resource" id="Resource_fu8yl"]
+script = ExtResource("5_gm5lq")
+name = ""
+colour = Color(1, 1, 1, 1)
 
 [sub_resource type="Resource" id="Resource_enp0j"]
 script = ExtResource("3_nsel4")
-disable_on_interact = false
-speakers = Array[Object]([null, ExtResource("4_eyg68")])
-speaker_order = PackedInt32Array()
-dialogue = PackedStringArray()
+disable_on_interact = true
+speakers = Array[Object]([ExtResource("4_eyg68"), SubResource("Resource_fu8yl")])
+speaker_order = PackedInt32Array(0, 0, 0, 1)
+dialogue = PackedStringArray("This burger brings back memories of childhood", "Which is to say last Thursday, because I\'m a child", "Looks delicious, though!", "You ate the Wacburger! Your caloric intake for the day is now 8002%", "They really gotta make these things less salty, I was only aiming for 80001% of my daily intake!")
 changes_health = true
 health_change = -1
 status_effect = "Loving it"
 inventory = ""
-required_inventory = PackedStringArray()
+required_inventory = PackedStringArray("wacburger")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_di2jy"]
 

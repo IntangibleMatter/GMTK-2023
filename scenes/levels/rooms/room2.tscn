@@ -1,5 +1,207 @@
-[gd_scene load_steps=2 format=3 uid="uid://dnvskjhb1g0w8"]
+[gd_scene load_steps=33 format=3 uid="uid://dnvskjhb1g0w8"]
 
 [ext_resource type="PackedScene" uid="uid://dc8qvtuc66xur" path="res://scenes/levels/levelbase.tscn" id="1_dunr2"]
+[ext_resource type="Texture2D" uid="uid://cum3joifsea2m" path="res://assets/graphics/environments/TS_WoodBordersPlanks.png" id="2_alab0"]
+[ext_resource type="PackedScene" uid="uid://d173kw5ug5niv" path="res://objects/interactables/props/wac/wacburger.tscn" id="3_8qltt"]
+[ext_resource type="PackedScene" uid="uid://d0sg8hrulp6se" path="res://objects/interactables/props/paintings/losspainting.tscn" id="3_xxe8c"]
+[ext_resource type="PackedScene" uid="uid://7meqnxr4kgdb" path="res://objects/interactables/npcs/maid.tscn" id="4_x5n4e"]
+[ext_resource type="Script" path="res://objects/interactables/npcs/maid_room2.gd" id="5_7yth1"]
+[ext_resource type="PackedScene" uid="uid://36lvw842uvtk" path="res://objects/interactables/props/candelabra/candelabra.tscn" id="5_xf7bt"]
+[ext_resource type="AudioStream" uid="uid://cl0t4xtvcp1q2" path="res://assets/sfx/car/driveaway.ogg" id="6_bxhn8"]
+[ext_resource type="Script" path="res://objects/resources/interaction.gd" id="7_nxq03"]
+[ext_resource type="AudioStream" uid="uid://cjo2p2bvmguc4" path="res://assets/sfx/car/driveback.ogg" id="8_egv6n"]
+[ext_resource type="Resource" uid="uid://dj4ss2ce2jfkc" path="res://assets/interactions/characters/player.tres" id="8_mxppj"]
+[ext_resource type="PackedScene" uid="uid://dmq5f5itauo0j" path="res://objects/interactables/props/cdplayer/cdplayer.tscn" id="9_e67bk"]
+[ext_resource type="Resource" uid="uid://djfe2d83ofxbn" path="res://assets/interactions/characters/maid.tres" id="9_nscpp"]
+[ext_resource type="Shader" path="res://assets/shaders/highlighted.gdshader" id="10_4wi86"]
+[ext_resource type="Script" path="res://objects/resources/speaker.gd" id="10_8vjv4"]
+[ext_resource type="Script" path="res://objects/interactables/props/cdplayer/cdplayer.gd" id="10_crsl2"]
+[ext_resource type="PackedScene" uid="uid://b1b7jr5osnbn4" path="res://objects/interactables/props/paintings/suspainting.tscn" id="12_kgrey"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1cn8x"]
+size = Vector2(64, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u4xyj"]
+size = Vector2(20, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwguo"]
+size = Vector2(64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2gh0"]
+atlas = ExtResource("2_alab0")
+region = Rect2(0, 32, 64, 64)
+
+[sub_resource type="Resource" id="Resource_5h82w"]
+script = ExtResource("7_nxq03")
+disable_on_interact = true
+speakers = Array[Object]([ExtResource("8_mxppj")])
+speaker_order = PackedInt32Array()
+dialogue = PackedStringArray("Truly incredible... I\'m at a loss for words.")
+changes_health = true
+health_change = 0
+status_effect = "Purveyor of fine art"
+inventory = ""
+required_inventory = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_6obkt"]
+script = ExtResource("10_8vjv4")
+name = ""
+colour = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_0c0hl"]
+script = ExtResource("7_nxq03")
+disable_on_interact = true
+speakers = Array[Object]([ExtResource("8_mxppj"), SubResource("Resource_6obkt")])
+speaker_order = PackedInt32Array(0, 0, 1, 0)
+dialogue = PackedStringArray("Hmmm... this candelabra is [wave amp=10]hot![/wave]", "...temperature-wise. I meant temperature-wise", "You burned yourself with the candles! That should do the trick!", "Not doing that again right away...")
+changes_health = true
+health_change = -1
+status_effect = "Burnie Sanders"
+inventory = "burnt"
+required_inventory = PackedStringArray()
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ae431"]
+resource_local_to_scene = true
+shader = ExtResource("10_4wi86")
+shader_parameter/color = Vector4(1, 1, 1, 1)
+shader_parameter/flashstate = 0.0
+shader_parameter/glowfactor = 0.3
+shader_parameter/timefactor = 4.0
+
+[sub_resource type="Resource" id="Resource_axsix"]
+script = ExtResource("10_8vjv4")
+name = ""
+colour = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_8u7ah"]
+script = ExtResource("7_nxq03")
+disable_on_interact = false
+speakers = Array[Object]([ExtResource("8_mxppj"), SubResource("Resource_axsix")])
+speaker_order = PackedInt32Array(0, 0, 1, 1, 0)
+dialogue = PackedStringArray("The CD player! Finally, the sweet, sweet sound of Fall Out at the Chemical Park...", "Let me just put the CD in...", "{{signal}}mcr", "{{wait}}45", "God, I love Ebony Dark\'ness Dementia Raven Way...")
+changes_health = true
+health_change = 0
+status_effect = "Not a phase, mom"
+inventory = "musicfan"
+required_inventory = PackedStringArray("mcr")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_af25w"]
+resource_local_to_scene = true
+shader = ExtResource("10_4wi86")
+shader_parameter/color = Vector4(1, 1, 1, 1)
+shader_parameter/flashstate = 0.0
+shader_parameter/glowfactor = 0.3
+shader_parameter/timefactor = 4.0
+
+[sub_resource type="Resource" id="Resource_v66g3"]
+script = ExtResource("10_8vjv4")
+name = ""
+colour = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_8a1uc"]
+script = ExtResource("7_nxq03")
+disable_on_interact = true
+speakers = Array[Object]([ExtResource("8_mxppj"), SubResource("Resource_v66g3"), ExtResource("9_nscpp")])
+speaker_order = PackedInt32Array(0, 2, 1)
+dialogue = PackedStringArray("I will never understand this painting...", "Oh! That painting! Those were good times...", "[shake level=10]you will never understand this painting[/shake]")
+changes_health = true
+health_change = -1
+status_effect = "Confused"
+inventory = "sus"
+required_inventory = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_yawo6"]
+script = ExtResource("10_8vjv4")
+name = ""
+colour = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_e8y61"]
+script = ExtResource("7_nxq03")
+disable_on_interact = true
+speakers = Array[Object]([ExtResource("8_mxppj"), ExtResource("9_nscpp"), SubResource("Resource_yawo6")])
+speaker_order = PackedInt32Array(0, 1, 2, 2, 1, 0)
+dialogue = PackedStringArray("Hey June, can you get me some Wacdonald\'s?", "You\'ve been so good lately, I don\'t see why not!", "{{signal}}mcds", "{{wait}}45", "Someone cut my breaks! I\'m glad I noticed while on the freeway so I could change them as I drove...", "[wave amp=10]wacdonals")
+changes_health = false
+health_change = 0
+status_effect = ""
+inventory = "wacburger"
+required_inventory = PackedStringArray()
 
 [node name="levelbase" instance=ExtResource("1_dunr2")]
+
+[node name="TileMap2" parent="." index="1"]
+layer_0/tile_data = PackedInt32Array(524287, 196610, 3, 458752, 196610, 3, 458753, 196610, 3, 458754, 196610, 3, 458755, 196610, 3, 458756, 196610, 3, 458757, 196610, 3, 458758, 196610, 3, 458759, 196610, 3, 458760, 196610, 3, 458761, 196610, 3, 458762, 196610, 3, 458763, 196610, 3, 458764, 196610, 3, 458765, 196610, 3, 458766, 196610, 3, 458767, 196610, 3, 458768, 196610, 3, 458769, 196610, 3, 458770, 196610, 3, 458771, 196610, 3, 458772, 196610, 3, 458773, 196610, 3, 458774, 196610, 3, 458775, 196610, 3, 458776, 196610, 3, 458777, 196610, 3, 393241, 196610, 0, 393240, 196610, 0, 393239, 196610, 0, 327702, 196610, 0, 327701, 196610, 0, 327700, 196610, 0, 327699, 196610, 0, 262162, 196610, 0, 262161, 196610, 0, 262160, 196610, 0, 262159, 196610, 0, 196622, 196610, 0, 196621, 196610, 0, 196620, 196610, 0, 196619, 196610, 0, 196618, 196610, 0, 131081, 196610, 0, 131080, 196610, 0, 131079, 196610, 0, 131078, 196610, 0, 65541, 196610, 0, 65540, 196610, 0, 65539, 196610, 0, 65538, 196610, 0, 1, 196610, 0, 0, 196610, 0, 65535, 196610, 0, 327705, 196610, 0, 262169, 196610, 0, 196633, 196610, 0, 131097, 196610, 0, 65561, 196610, 0, 25, 196610, 0, -65511, 196610, 0, 327704, 196610, 0, 262168, 196610, 0, 196632, 196610, 0, 131096, 196610, 0, 65560, 196610, 0, 24, 196610, 0, -65512, 196610, 0, 327703, 196610, 0, 262167, 196610, 0, 196631, 196610, 0, 131095, 196610, 0, 65559, 196610, 0, 23, 196610, 0, -65513, 196610, 0, 393238, 196610, 0, 262166, 196610, 0, 196630, 196610, 0, 131094, 196610, 0, 65558, 196610, 0, 22, 196610, 0, -65514, 196610, 0, 393237, 196610, 0, 262165, 196610, 0, 196629, 196610, 0, 131093, 196610, 0, 65557, 196610, 0, 21, 196610, 0, -65515, 196610, 0, 393236, 196610, 0, 262164, 196610, 0, 196628, 196610, 0, 131092, 196610, 0, 65556, 196610, 0, 20, 196610, 0, -65516, 196610, 0, 393235, 196610, 0, 262163, 196610, 0, 196627, 196610, 0, 131091, 196610, 0, 65555, 196610, 0, 19, 196610, 0, -65517, 196610, 0, 393234, 196610, 0, 327698, 196610, 0, 196626, 196610, 0, 131090, 196610, 0, 65554, 196610, 0, 18, 196610, 0, -65518, 196610, 0, 393233, 196610, 0, 327697, 196610, 0, 196625, 196610, 0, 131089, 196610, 0, 65553, 196610, 0, 17, 196610, 0, -65519, 196610, 0, 393232, 196610, 0, 327696, 196610, 0, 196624, 196610, 0, 131088, 196610, 0, 65552, 196610, 0, 16, 196610, 0, -65520, 196610, 0, 393231, 196610, 0, 327695, 196610, 0, 196623, 196610, 0, 131087, 196610, 0, 65551, 196610, 0, 15, 196610, 0, -65521, 196610, 0, 393230, 196610, 0, 327694, 196610, 0, 262158, 196610, 0, 131086, 196610, 0, 65550, 196610, 0, 14, 196610, 0, -65522, 196610, 0, 393229, 196610, 0, 327693, 196610, 0, 262157, 196610, 0, 131085, 196610, 0, 65549, 196610, 0, 13, 196610, 0, -65523, 196610, 0, 393228, 196610, 0, 327692, 196610, 0, 262156, 196610, 0, 131084, 196610, 0, 65548, 196610, 0, 12, 196610, 0, -65524, 196610, 0, 393227, 196610, 0, 327691, 196610, 0, 262155, 196610, 0, 131083, 196610, 0, 65547, 196610, 0, 11, 196610, 0, -65525, 196610, 0, 393226, 196610, 0, 327690, 196610, 0, 262154, 196610, 0, 131082, 196610, 0, 65546, 196610, 0, 10, 196610, 0, -65526, 196610, 0, 393225, 196610, 0, 327689, 196610, 0, 262153, 196610, 0, 196617, 196610, 0, 65545, 196610, 0, 9, 196610, 0, -65527, 196610, 0, 393224, 196610, 0, 327688, 196610, 0, 262152, 196610, 0, 196616, 196610, 0, 65544, 196610, 0, 8, 196610, 0, -65528, 196610, 0, 393223, 196610, 0, 327687, 196610, 0, 262151, 196610, 0, 196615, 196610, 0, 65543, 196610, 0, 7, 196610, 0, -65529, 196610, 0, 393222, 196610, 0, 327686, 196610, 0, 262150, 196610, 0, 196614, 196610, 0, 65542, 196610, 0, 6, 196610, 0, -65530, 196610, 0, 393221, 196610, 0, 327685, 196610, 0, 262149, 196610, 0, 196613, 196610, 0, 131077, 196610, 0, 5, 196610, 0, -65531, 196610, 0, 393220, 196610, 0, 327684, 196610, 0, 262148, 196610, 0, 196612, 196610, 0, 131076, 196610, 0, 4, 196610, 0, -65532, 196610, 0, 393219, 196610, 0, 327683, 196610, 0, 262147, 196610, 0, 196611, 196610, 0, 131075, 196610, 0, 3, 196610, 0, -65533, 196610, 0, 393218, 196610, 0, 327682, 196610, 0, 262146, 196610, 0, 196610, 196610, 0, 131074, 196610, 0, 2, 196610, 0, -65534, 196610, 0, 393217, 196610, 0, 327681, 196610, 0, 262145, 196610, 0, 196609, 196610, 0, 131073, 196610, 0, 65537, 196610, 0, -65535, 196610, 0, 393216, 196610, 0, 327680, 196610, 0, 262144, 196610, 0, 196608, 196610, 0, 131072, 196610, 0, 65536, 196610, 0, -65536, 196610, 0, 458751, 196610, 0, 393215, 196610, 0, 327679, 196610, 0, 262143, 196610, 0, 196607, 196610, 0, 131071, 196610, 0, -1, 196610, 0)
+layer_1/tile_data = PackedInt32Array(458756, 3, 1, 458757, 65539, 1, 458758, 458755, 1, 458772, 327683, 4)
+
+[node name="TileMap" parent="." index="2"]
+layer_0/tile_data = PackedInt32Array(327679, 327681, 1, 327678, 1, 1, 262144, 131073, 2, 196608, 131073, 1, 262143, 65537, 1, 262142, 1, 1, 131072, 131073, 1, 196607, 65537, 1, 196606, 1, 1, 65536, 131073, 1, 131071, 65537, 1, 131070, 1, 1, 65534, 1, 1, 65535, 65537, 1, 0, 327681, 1, -2, 1, 0, -1, 65537, 0, -65536, 65537, 0, -65535, 65537, 0, -65534, 65537, 0, -65533, 65537, 0, -65532, 65537, 0, -65531, 65537, 0, -65530, 65537, 0, -65529, 65537, 0, -65528, 65537, 0, -65522, 65537, 0, -65521, 65537, 0, -65523, 65537, 0, -65524, 65537, 0, -65525, 65537, 0, -65526, 65537, 0, -65527, 65537, 0, 6, 65537, 2, 5, 65537, 2, 4, 65537, 2, 3, 65537, 2, 2, 65537, 2, 1, 65537, 2, 7, 65537, 2, 8, 65537, 2, 9, 65537, 2, 10, 65537, 2, 11, 65537, 2, 12, 65537, 2, 13, 65537, 2, 14, 65537, 2, 15, 65537, 2, 393214, 262145, 1, 458750, 196609, 1, 524286, 196609, 1, 589822, 262145, 2, 655358, 1, 2, 393215, 131073, 2, 655359, 65537, 2, 589824, 65537, 2, 589825, 65537, 2, 589826, 65537, 2, 589827, 65537, 2, 589828, 65537, 2, 589829, 65537, 2, 589830, 65537, 2, 589831, 65537, 2, 589832, 65537, 2, 589833, 65537, 2, 589834, 65537, 2, 589835, 65537, 2, 589836, 65537, 2, 589837, 65537, 2, 589838, 65537, 2, 589823, 65537, 0, 524288, 65537, 0, 524289, 65537, 0, 524290, 65537, 0, 524291, 65537, 0, 524292, 65537, 0, 524293, 65537, 0, 524294, 65537, 0, 524295, 65537, 0, 524296, 65537, 0, 524297, 65537, 0, 524298, 65537, 0, 524299, 65537, 0, 524300, 65537, 0, 524301, 65537, 0, 524302, 65537, 0, 524303, 65537, 0, 589839, 65537, 2, -65520, 65537, 0, -65519, 65537, 0, -65518, 65537, 0, -65517, 65537, 0, -65516, 65537, 0, -65515, 65537, 0, -65514, 65537, 0, 22, 65537, 2, 21, 65537, 2, 20, 65537, 2, 19, 65537, 2, 18, 65537, 2, 17, 65537, 2, 16, 65537, 2, 524304, 65537, 0, 524305, 65537, 0, 524306, 65537, 0, 524307, 65537, 0, 524308, 65537, 0, 524309, 65537, 0, 524310, 65537, 0, 524311, 65537, 0, 589846, 65537, 2, 589845, 65537, 2, 589844, 65537, 2, 589843, 65537, 2, 589842, 65537, 2, 589841, 65537, 2, 589840, 65537, 2, 589847, 65537, 2, -65513, 65537, 0, 23, 65537, 2, -65512, 65537, 0, 24, 393217, 1, 65560, 1, 1, -65511, 131073, 0, 25, 131073, 1, 65561, 131073, 1, 131097, 131073, 1, 196633, 131073, 1, 131096, 1, 1, 196632, 1, 1, 524312, 65537, 0, 589848, 65537, 2, 589849, 131073, 2, 524313, 131073, 0, 262168, 1, 2, 262169, 131073, 2)
+
+[node name="Camera2D" parent="player" index="9"]
+limit_left = 0
+limit_top = 32
+limit_right = 800
+limit_bottom = 320
+
+[node name="checkpoint" parent="checkpoints" index="0"]
+position = Vector2(32, 256)
+shape = SubResource("RectangleShape2D_1cn8x")
+spawn_offset = Vector2(0, -4)
+
+[node name="level_exit" parent="." index="6"]
+position = Vector2(824, 224)
+shape = SubResource("RectangleShape2D_u4xyj")
+next_scene = "res://scenes/levels/rooms/room3.tscn"
+
+[node name="LevelExitShortner" parent="." index="7"]
+position = Vector2(800, 163)
+
+[node name="CollisionShape2D" parent="LevelExitShortner" index="0"]
+shape = SubResource("RectangleShape2D_fwguo")
+
+[node name="Sprite2D" parent="LevelExitShortner" index="1"]
+texture = SubResource("AtlasTexture_a2gh0")
+
+[node name="mcds-burger" parent="props" index="0" instance=ExtResource("3_8qltt")]
+visible = false
+material = null
+position = Vector2(184, 216)
+hide_on_interact = true
+
+[node name="loss" parent="props" index="1" instance=ExtResource("3_xxe8c")]
+material = null
+position = Vector2(528, 184)
+interactions = Array[ExtResource("7_nxq03")]([SubResource("Resource_5h82w")])
+
+[node name="candelabra" parent="props" index="2" instance=ExtResource("5_xf7bt")]
+material = null
+position = Vector2(144, 216)
+interactions = Array[ExtResource("7_nxq03")]([SubResource("Resource_0c0hl")])
+
+[node name="cdplayer" parent="props" index="3" instance=ExtResource("9_e67bk")]
+material = SubResource("ShaderMaterial_ae431")
+position = Vector2(656, 218)
+script = ExtResource("10_crsl2")
+interactions = Array[ExtResource("7_nxq03")]([SubResource("Resource_8u7ah")])
+
+[node name="propbase" parent="props" index="4" instance=ExtResource("12_kgrey")]
+material = SubResource("ShaderMaterial_af25w")
+position = Vector2(400, 176)
+interactions = Array[ExtResource("7_nxq03")]([SubResource("Resource_8a1uc")])
+
+[node name="Maid" parent="." index="9" instance=ExtResource("4_x5n4e")]
+position = Vector2(264, 256)
+script = ExtResource("5_7yth1")
+interaction = SubResource("Resource_e8y61")
+
+[node name="Sprite2D" parent="Maid" index="0"]
+flip_h = true
+
+[node name="driveaway" type="AudioStreamPlayer2D" parent="Maid" index="4"]
+stream = ExtResource("6_bxhn8")
+bus = &"sfx"
+
+[node name="driveaway2" type="AudioStreamPlayer2D" parent="Maid" index="5"]
+stream = ExtResource("8_egv6n")
+bus = &"sfx"
+
+[editable path="Maid"]

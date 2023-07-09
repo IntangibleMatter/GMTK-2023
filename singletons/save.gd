@@ -4,6 +4,8 @@ signal player_health_changed(by: int)
  
 var savepath := "user://grimaceshake.sav"
 
+signal new_game_created
+
 var default_savedata : Dictionary = {
 	"save_exists": false,
 	"room": "res://scenes/levels/rooms/room1.tscn",
@@ -20,7 +22,7 @@ var default_savedata : Dictionary = {
 var savedata : Dictionary
 
 func _ready() -> void:
-	savedata = default_savedata
+	savedata = default_savedata.duplicate(true)
 	load_game()
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN if savedata.fullscreen else DisplayServer.WINDOW_MODE_WINDOWED)
 	AudioServer.set_bus_volume_db(1, linear_to_db(savedata.sfx_v))
@@ -43,7 +45,10 @@ func add_to_inventory(item: String) -> void:
 
 
 func new_game() -> void:
-	savedata = default_savedata
+	savedata.clear()
+	savedata = default_savedata.duplicate()
+#	emit_signal("new_game_created")
+	print(savedata)
 	save_game()
 
 

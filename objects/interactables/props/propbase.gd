@@ -28,7 +28,8 @@ func _ready() -> void:
 #	inter.speakers[0].name = obj_name
 #	inter.speakers[0].colour = obj_colour
 #	inter.speakers[0].sound = obj_sound
-	inter.disable_on_interact = hide_on_interact
+	if hide_on_interact:
+		inter.disable_on_interact = true
 	interactablebase.interaction = inter
 #	_on_interactablebase_current_interactable(true)
 

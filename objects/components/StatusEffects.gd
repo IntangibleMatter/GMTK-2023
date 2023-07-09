@@ -10,7 +10,8 @@ func _ready() -> void:
 	curr_status_count = Save.savedata.status.size()
 	for line in Save.savedata.status:
 		rich_text_label.append_text(line + "\n")
-	rich_text_label.visible_characters = strip_bbcode(rich_text_label.text).length()
+		print(line)
+#	rich_text_label.visible_characters = strip_bbcode(rich_text_label.text).length()
 	print(rich_text_label.visible_characters)
 
 
@@ -28,7 +29,7 @@ func _process(_delta: float) -> void:
 			new_status_sound.play()
 			var newtext = Save.savedata.status[curr_status_count - diff + i] + "\n"
 			rich_text_label.append_text(newtext)
-			for j in strip_bbcode(newtext).length():
-				rich_text_label.visible_characters += 1
-				await get_tree().create_timer(0.025).timeout
+#			for j in strip_bbcode(newtext).length():
+#				rich_text_label.visible_characters += 1
+#				await get_tree().create_timer(0.025).timeout
 			await get_tree().create_timer(0.1).timeout

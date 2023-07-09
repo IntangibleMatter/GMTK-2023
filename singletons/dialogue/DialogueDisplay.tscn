@@ -9,4 +9,5 @@ script = ExtResource("1_370ac")
 
 [node name="Dialogue" parent="." instance=ExtResource("1_5mj5f")]
 
+[connection signal="dialogue_signal" from="Dialogue" to="." method="_on_dialogue_dialogue_signal"]
 [connection signal="speaker_changed" from="Dialogue" to="." method="_on_dialogue_speaker_changed"]
