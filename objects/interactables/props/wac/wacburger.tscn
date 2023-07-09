@@ -16,8 +16,6 @@ health_change = -1
 status_effect = "Loving it"
 inventory = ""
 required_inventory = PackedStringArray()
-signals = PackedStringArray()
-signal_on = PackedInt32Array()
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_di2jy"]
 

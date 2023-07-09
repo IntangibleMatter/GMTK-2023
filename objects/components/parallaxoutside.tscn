@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4b715fox5sjh"]
+
+[ext_resource type="Texture2D" uid="uid://qyspi7vayv0o" path="res://assets/graphics/environments/BG0_Sky.png" id="1_rs0ar"]
+[ext_resource type="Texture2D" uid="uid://dtfku171d8gcl" path="res://assets/graphics/environments/BG1_Mountains.png" id="2_iy7fh"]
+[ext_resource type="Texture2D" uid="uid://bhy46e6yskksi" path="res://assets/graphics/environments/BG2_Trees.png" id="3_53o8i"]
+[ext_resource type="Texture2D" uid="uid://dkl4ncsqbrswv" path="res://assets/graphics/environments/BG3_Gate.png" id="4_7xdt5"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+scroll_limit_begin = Vector2(0, -288)
+scroll_limit_end = Vector2(0, 288)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+texture = ExtResource("1_rs0ar")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(512, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+texture = ExtResource("2_iy7fh")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(512, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
+texture = ExtResource("3_53o8i")
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.8, 0.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer4"]
+texture = ExtResource("4_7xdt5")
+centered = false
