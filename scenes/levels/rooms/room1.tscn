@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b8obc2jqnkxnj"]
+[gd_scene load_steps=31 format=3 uid="uid://b8obc2jqnkxnj"]
 
 [ext_resource type="PackedScene" uid="uid://dc8qvtuc66xur" path="res://scenes/levels/levelbase.tscn" id="1_1g77n"]
 [ext_resource type="Texture2D" uid="uid://cum3joifsea2m" path="res://assets/graphics/environments/TS_WoodBordersPlanks.png" id="2_5crbj"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bvhtn347at867" path="res://objects/interactables/props/paintings/skullposter.tscn" id="9_t0bo5"]
 [ext_resource type="PackedScene" uid="uid://dhurnqo1uxck1" path="res://objects/interactables/props/laundry/laundry1.tscn" id="10_43rev"]
 [ext_resource type="PackedScene" uid="uid://bqndq4kv5lfnh" path="res://objects/interactables/props/laundry/laundry2.tscn" id="11_jjxcb"]
+[ext_resource type="PackedScene" uid="uid://cnc16ncxwy1ut" path="res://objects/interactables/props/toys/teddycartoy.tscn" id="13_e57k5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tvlvj"]
 size = Vector2(20, 64)
@@ -53,7 +54,7 @@ script = ExtResource("4_cjmap")
 disable_on_interact = true
 speakers = Array[Object]([ExtResource("5_woh1a"), SubResource("Resource_g5qux")])
 speaker_order = PackedInt32Array()
-dialogue = PackedStringArray("Hmmm... still too healthy. I need to find some other ways to shrink this bar...", "", "")
+dialogue = PackedStringArray("Hmmm... still too healthy. I need to find some other ways to shrink this bar...", "Maybe some clothes or ")
 changes_health = false
 health_change = 0
 status_effect = ""
@@ -116,6 +117,23 @@ changes_health = true
 health_change = -1
 status_effect = "Stinky"
 inventory = "laundry2"
+required_inventory = PackedStringArray()
+
+[sub_resource type="Resource" id="Resource_tgr2r"]
+script = ExtResource("6_r620f")
+name = ""
+colour = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_76r4t"]
+script = ExtResource("4_cjmap")
+disable_on_interact = true
+speakers = Array[Object]([ExtResource("5_woh1a"), SubResource("Resource_tgr2r")])
+speaker_order = PackedInt32Array(0, 0, 0, 1, 0)
+dialogue = PackedStringArray("Ah... my toys. They\'re unbreakable, so I could proably seriously damage something with them", "Hmmm.... let\'s see here, what could I mess up with these....", "{{wait}}1.5", "You ate your toys! Weirdo...", "Good source of iron, man")
+changes_health = true
+health_change = -1
+status_effect = "Devourer of worlds"
+inventory = "toys"
 required_inventory = PackedStringArray()
 
 [node name="room1" instance=ExtResource("1_1g77n")]
@@ -195,4 +213,9 @@ hide_on_interact = true
 material = ExtResource("8_7jy2o")
 position = Vector2(65, -15)
 interactions = Array[ExtResource("4_cjmap")]([SubResource("Resource_1pidk")])
+hide_on_interact = true
+
+[node name="toys" parent="props" index="5" instance=ExtResource("13_e57k5")]
+position = Vector2(141, -16)
+interactions = Array[ExtResource("4_cjmap")]([SubResource("Resource_76r4t")])
 hide_on_interact = true
