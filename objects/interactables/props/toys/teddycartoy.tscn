@@ -1,10 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://cnc16ncxwy1ut"]
+[gd_scene load_steps=4 format=3 uid="uid://cnc16ncxwy1ut"]
 
 [ext_resource type="PackedScene" uid="uid://ht54ul0deq8n" path="res://objects/interactables/props/propbase.tscn" id="1_apj16"]
 [ext_resource type="Texture2D" uid="uid://bb3vopmsxhunm" path="res://assets/graphics/props/Props_Spritesheet.png" id="2_wkbh7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xoptt"]
+radius = 32.0
 
 [node name="propbase" instance=ExtResource("1_apj16")]
 texture = ExtResource("2_wkbh7")
 hframes = 16
 vframes = 16
 frame = 109
+
+[node name="interactablebase" parent="." index="0"]
+shape = SubResource("CircleShape2D_xoptt")

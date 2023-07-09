@@ -38,10 +38,10 @@ func health_check() -> bool:
 	match check:
 		HEALTH_CHECK_TYPE.LESS:
 			print("ooo")
-			return healthcheck >= Save.savedata.health
+			return healthcheck > Save.savedata.health
 		HEALTH_CHECK_TYPE.MORE:
 			print(":www")
-			return healthcheck <= Save.savedata.health
+			return healthcheck < Save.savedata.health
 		HEALTH_CHECK_TYPE.EQUALS:
 			print("fhhh")
 			return healthcheck == Save.savedata.health

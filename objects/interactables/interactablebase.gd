@@ -67,16 +67,18 @@ func _on_area_exited(area):
 
 func calculate_closest() -> void:
 	if used: return
+	if DialogueDisplay.player_frozen: return
 	var player : CharacterBody2D = get_tree().get_first_node_in_group("Player")
 	if player.interaction_area.has_overlapping_areas():
-		print(self)
-		if player.interaction_area.get_overlapping_areas()[0] == self:
-			emit_signal("current_interactable", true)
-			i_am_closest = true
-		else:
-			if i_am_closest:
-				emit_signal("current_interactable", false)
-				i_am_closest = false
+		print(self.get_path())
+		if not player.interaction_area.get_overlapping_areas().is_empty():
+			if player.interaction_area.get_overlapping_areas()[0] == self:
+				emit_signal("current_interactable", true)
+				i_am_closest = true
+			else:
+				if i_am_closest:
+					emit_signal("current_interactable", false)
+					i_am_closest = false
 	else:
 		if i_am_closest:
 			emit_signal("current_interactable", false)

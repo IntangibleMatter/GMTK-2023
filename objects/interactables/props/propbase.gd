@@ -33,9 +33,9 @@ func _ready() -> void:
 #	_on_interactablebase_current_interactable(true)
 
 
-func self_destruct() -> void:
+func self_destruct(inter: Interaction) -> void:
 	print("kjahsdk")
-	if interactablebase.used and hide_on_interact:
+	if interactablebase.used and hide_on_interact and inter == interactablebase.interaction:
 		var tween := get_tree().create_tween()
 		tween.tween_property(self, "modulate", Color(1,1,1,0), 0.1)
 		await tween.finished
