@@ -8,6 +8,7 @@ var player_flip_h : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Save.savedata.save_exists = true
 	RenderingServer.set_default_clear_color(Color.AQUA)
 	Music.play(Music.SONGS.MAIN)
 	player.global_position = checkpoints[Save.savedata.checkpoint].get_spawn_point() \
