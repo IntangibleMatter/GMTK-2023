@@ -11,8 +11,8 @@ var current_interaction : Interaction
 var player_frozen = false
 
 func set_interaction(interaction: Interaction) -> void:
-#	if interaction.speaker_order.size() < interaction.dialogue.size():
-#		interaction.speaker_order.resize(interaction.dialogue.size())
+	if interaction.speaker_order.size() < interaction.dialogue.size():
+		interaction.speaker_order.resize(interaction.dialogue.size())
 	current_interaction = interaction
 	check_for_required_inventory()
 	play_interaction()

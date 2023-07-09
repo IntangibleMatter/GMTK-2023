@@ -61,6 +61,7 @@ _data = {
 }
 
 [node name="Mom" instance=ExtResource("1_bbgt7")]
+nam = "Mom"
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_hltsl")

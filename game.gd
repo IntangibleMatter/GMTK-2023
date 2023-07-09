@@ -16,7 +16,10 @@ enum SCENE_TRANSITION_TYPE {NORMAL, JUMP}
 
 func _ready():
 	RenderingServer.set_default_clear_color(Color.BLACK)
-	change_scene("res://scenes/game/splash/splash.tscn")
+	if not OS.is_debug_build():
+		change_scene("res://scenes/game/splash/splash.tscn")
+	else:
+		change_scene("res://scenes/game/ui/menus/main_menu.tscn")
 
 
 
