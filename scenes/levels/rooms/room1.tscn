@@ -83,7 +83,7 @@ script = ExtResource("4_cjmap")
 disable_on_interact = false
 speakers = Array[Object]([ExtResource("5_woh1a")])
 speaker_order = PackedInt32Array()
-dialogue = PackedStringArray("Fall Out at the Chemical Park is [wave amp=30]sooooooo[/wave] good! I especially love their hit, \"Wake Me Up Inside at the Black Parade\"!", "One day I\'ll meet you, Ebony Dark\'ness Dimentia Raven Way...")
+dialogue = PackedStringArray("Fall Out at the Chemical Park is [wave amp=30]sooooooo[/wave] good! I especially love their hit, \"Wake Me Up Inside at the Black Parade\"!", "One day I\'ll meet you, Ebony Dark\'ness Dementia Raven Way...")
 changes_health = false
 health_change = 0
 status_effect = ""
