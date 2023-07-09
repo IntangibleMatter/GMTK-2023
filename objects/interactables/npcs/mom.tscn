@@ -2,10 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bixes7rolohr7" path="res://objects/interactables/npcs/npc_base.tscn" id="1_bbgt7"]
 [ext_resource type="Texture2D" uid="uid://g7ud2x1nygxh" path="res://assets/graphics/characters/npcs/Char_Mom_Sprite.png" id="2_hltsl"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3m7df"]
-radius = 15.0
-height = 52.0
+[ext_resource type="Shape2D" uid="uid://coamuvlm1q04d" path="res://objects/interactables/npcs/npccolliders/mom.tres" id="3_iorn8"]
 
 [sub_resource type="Animation" id="Animation_160ln"]
 resource_name = "Idle"
@@ -73,9 +70,14 @@ frame = 5
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(1, -26)
-shape = SubResource("CapsuleShape2D_3m7df")
+shape = ExtResource("3_iorn8")
+
+[node name="interactablebase" parent="." index="2"]
+position = Vector2(1, -26)
+shape = ExtResource("3_iorn8")
 
 [node name="AnimationPlayer" parent="." index="3"]
+autoplay = "Idle"
 libraries = {
 "": SubResource("AnimationLibrary_cb4q0")
 }

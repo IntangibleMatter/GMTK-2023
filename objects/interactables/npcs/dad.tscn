@@ -2,10 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bixes7rolohr7" path="res://objects/interactables/npcs/npc_base.tscn" id="1_alce6"]
 [ext_resource type="Texture2D" uid="uid://j3w5306hbj2d" path="res://assets/graphics/characters/npcs/Char_Dad_Sprite.png" id="2_3aiku"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ukpca"]
-radius = 15.0
-height = 56.0
+[ext_resource type="Shape2D" uid="uid://ce41g4e7ff0cx" path="res://objects/interactables/npcs/npccolliders/dad.tres" id="3_wjfa0"]
 
 [sub_resource type="Animation" id="Animation_avw4d"]
 resource_name = "Idle"
@@ -73,7 +70,11 @@ frame = 3
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(-1, -28)
-shape = SubResource("CapsuleShape2D_ukpca")
+shape = ExtResource("3_wjfa0")
+
+[node name="interactablebase" parent="." index="2"]
+position = Vector2(-1, -28)
+shape = ExtResource("3_wjfa0")
 
 [node name="AnimationPlayer" parent="." index="3"]
 libraries = {

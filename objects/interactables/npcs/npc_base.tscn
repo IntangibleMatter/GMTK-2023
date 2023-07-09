@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://by78a7vr0pwrr" path="res://objects/interactables/interactablebase.tscn" id="2_wbe54"]
 
 [node name="npc_base" type="CharacterBody2D"]
+collision_layer = 8
 script = ExtResource("1_ru0eg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

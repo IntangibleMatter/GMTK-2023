@@ -2,10 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bixes7rolohr7" path="res://objects/interactables/npcs/npc_base.tscn" id="1_xs6ys"]
 [ext_resource type="Texture2D" uid="uid://ytqaxcophet5" path="res://assets/graphics/characters/npcs/Char_June_Spritesheet.png" id="2_052h8"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f0vh7"]
-radius = 12.0
-height = 54.0
+[ext_resource type="Shape2D" uid="uid://bki58ng4wxjgo" path="res://objects/interactables/npcs/npccolliders/maid.tres" id="3_d3qqw"]
 
 [sub_resource type="Animation" id="Animation_6kgae"]
 resource_name = "BeatWalk"
@@ -144,9 +141,14 @@ frame = 1
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, -27)
-shape = SubResource("CapsuleShape2D_f0vh7")
+shape = ExtResource("3_d3qqw")
+
+[node name="interactablebase" parent="." index="2"]
+position = Vector2(0, -27)
+shape = ExtResource("3_d3qqw")
 
 [node name="AnimationPlayer" parent="." index="3"]
+autoplay = "Idle"
 libraries = {
 "": SubResource("AnimationLibrary_vfwrm")
 }
