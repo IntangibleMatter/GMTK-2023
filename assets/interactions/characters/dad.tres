@@ -57,4 +57,4 @@ stream_15/weight = 0.05
 script = ExtResource("1_v5gnu")
 name = "Father"
 sound = SubResource("AudioStreamRandomizer_excrv")
-colour = Color(0.364706, 0.215686, 1, 1)
+colour = Color(0.835294, 0.741176, 0.933333, 1)

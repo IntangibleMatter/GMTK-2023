@@ -251,7 +251,9 @@ offset_right = -16.0
 offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
+bbcode_enabled = true
 scroll_active = false
+visible_characters_behavior = 1
 
 [node name="ColorRect" type="Panel" parent="Panel"]
 layout_mode = 1

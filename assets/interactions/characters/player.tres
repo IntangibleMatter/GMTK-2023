@@ -36,4 +36,4 @@ stream_8/weight = 1.0
 script = ExtResource("1_665ef")
 name = "Edwin"
 sound = SubResource("AudioStreamRandomizer_l72l1")
-colour = Color(0, 0.937255, 0.937255, 1)
+colour = Color(0.0705882, 0.305882, 0.537255, 1)

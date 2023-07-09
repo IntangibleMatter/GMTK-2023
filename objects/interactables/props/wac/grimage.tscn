@@ -1,23 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cuyqo8k812gvk"]
+[gd_scene load_steps=5 format=3 uid="uid://cuyqo8k812gvk"]
 
 [ext_resource type="PackedScene" uid="uid://ht54ul0deq8n" path="res://objects/interactables/props/propbase.tscn" id="1_tlfj0"]
 [ext_resource type="Texture2D" uid="uid://bb3vopmsxhunm" path="res://assets/graphics/props/Props_Spritesheet.png" id="2_b7hy8"]
-[ext_resource type="Script" path="res://objects/resources/interaction.gd" id="3_dobul"]
-[ext_resource type="Resource" uid="uid://dj4ss2ce2jfkc" path="res://assets/interactions/characters/player.tres" id="4_3gu7u"]
-
-[sub_resource type="Resource" id="Resource_g8mny"]
-script = ExtResource("3_dobul")
-disable_on_interact = false
-speakers = Array[Object]([null, ExtResource("4_3gu7u")])
-speaker_order = PackedInt32Array()
-dialogue = PackedStringArray()
-changes_health = true
-health_change = -69420
-status_effect = "Pure poison"
-inventory = ""
-required_inventory = PackedStringArray()
-signals = PackedStringArray()
-signal_on = PackedInt32Array()
+[ext_resource type="Resource" uid="uid://2w24eyrj5hhv" path="res://assets/interactions/miscitems/grimage1.tres" id="3_cdp15"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2crtt"]
 
@@ -27,7 +12,7 @@ texture = ExtResource("2_b7hy8")
 hframes = 16
 vframes = 16
 frame = 85
-interactions = Array[ExtResource("3_dobul")]([SubResource("Resource_g8mny")])
+interactions = Array[Resource("res://objects/resources/interaction.gd")]([ExtResource("3_cdp15")])
 obj_name = "Grimage Shake"
 obj_colour = Color(1, 0.780392, 0.172549, 1)
 

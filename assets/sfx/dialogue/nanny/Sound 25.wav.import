@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dmnf7muip0w3e"
+path="res://.godot/imported/Sound 25.wav-a686c6c0282c864675715a6757b1254d.sample"
+
+[deps]
+
+source_file="res://assets/sfx/dialogue/nanny/Sound 25.wav"
+dest_files=["res://.godot/imported/Sound 25.wav-a686c6c0282c864675715a6757b1254d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

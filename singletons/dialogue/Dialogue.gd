@@ -13,6 +13,8 @@ var index := 0
 var last_speaker_index := -1
 
 var jump_to_end = false
+var waiting : bool = false
+var wait_time : float = 0
 
 signal speaker_changed(speaker: String)
 signal interaction_finished
@@ -47,11 +49,27 @@ func play_interaction() -> void:
 	await animation_player.animation_finished
 	currently_interacting = true
 	while not index > interaction.dialogue.size() -1:
+		if interaction.dialogue[index].contains("{{signal}}"):
+			emit_signal("dialogue_signal", interaction.dialogue[index].replace("{{signal}}", ""))
+			index += 1
+			if index > interaction.dialogue.size() - 1:
+				break
 		setup_for_speaker()
+		print("ASDASD")
 		speaking = true
-		await setup_done
+#		await setup_done
 		display_dialogue()
-		await next_line
+		handle_signals()
+		print("ADBGKJBKJJBK")
+		if waiting:
+			await get_tree().create_timer(wait_time).timeout
+			waiting = false
+#			emit_signal("next_line")
+			print("hhhhh")
+		else:
+			await next_line
+			print("kjhk")
+		print("oop")
 		index += 1
 		
 	cleanup()
@@ -67,13 +85,19 @@ func play_interaction() -> void:
 func display_dialogue() -> void:
 	speaking = true
 	rich_text_label.visible_characters = 0
+	if interaction.dialogue[index].contains("{{wait}}"):
+		print('askjd')
+		waiting = true
+		wait_time = float(interaction.dialogue[index].replace("{{wait}}", ""))
+		speaking = false
+		return
 	rich_text_label.text = interaction.dialogue[index].replace("\\n", "\n")
 	speaker_noise.play()
 	for i in rich_text_label.text.length():
 		rich_text_label.visible_characters += 1
 		await get_tree().create_timer(0.03).timeout
 		if jump_to_end:
-			rich_text_label.visible_characters = rich_text_label.text.length()
+			rich_text_label.visible_characters = strip_bbcode(rich_text_label.text).length()
 			jump_to_end = false
 	speaking = false
 	
@@ -94,7 +118,7 @@ func setup_for_speaker() -> void:
 		animation_player.play("hide_name")
 		await animation_player.animation_finished
 	label.text = interaction.speakers[interaction.speaker_order[index]].name
-	if interaction.speakers[interaction.speaker_order[index]].name == "":
+	if interaction.speakers[interaction.speaker_order[index]].name == "" or interaction.speakers[interaction.speaker_order[index]] == null:
 		emit_signal("setup_done")
 		return
 	animation_player.play("show_name")
@@ -105,3 +129,9 @@ func setup_for_speaker() -> void:
 func handle_signals() -> void:
 	if index in interaction.signal_on:
 		emit_signal("dialogue_signal", interaction.signals[interaction.signal_on.find(index)])
+
+
+func strip_bbcode(text) -> String:
+	var regex = RegEx.new()
+	regex.compile("\\[.*?\\]")
+	return regex.sub(text, "", true)

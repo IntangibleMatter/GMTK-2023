@@ -45,4 +45,4 @@ stream_11/weight = 1.0
 script = ExtResource("1_d4xls")
 name = "June"
 sound = SubResource("AudioStreamRandomizer_qvd5p")
-colour = Color(0.898039, 0.490196, 0.494118, 1)
+colour = Color(0.854902, 0.827451, 0.898039, 1)

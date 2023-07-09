@@ -11,5 +11,5 @@ extends Resource
 @export var status_effect : String
 @export var inventory: String
 @export var required_inventory: PackedStringArray
-@export var signals : PackedStringArray
-@export var signal_on : PackedInt32Array
+#@export var signals : PackedStringArray
+#@export var signal_on : PackedInt32Array

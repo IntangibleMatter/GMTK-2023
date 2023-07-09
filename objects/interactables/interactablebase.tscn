@@ -4,6 +4,7 @@
 
 [node name="interactablebase" type="Area2D" groups=["Interactables"]]
 collision_layer = 8
+collision_mask = 9
 script = ExtResource("1_ie2qv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
