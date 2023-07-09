@@ -13,7 +13,6 @@ script = ExtResource("1_hggfe")
 [node name="main" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("2_705xi")
-autoplay = true
 bus = &"music"
 
 [node name="overture" type="AudioStreamPlayer" parent="."]

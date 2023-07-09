@@ -7,6 +7,7 @@ extends GameScene
 @onready var quit_button: Button = $VBoxContainer/MainPanel/MenuDisplay/MenuDisplayOptionsContainer/MainMenuButtons/HBoxContainer/VBoxContainer/QuitButton
 @onready var continuebutton: Button = $VBoxContainer/MainPanel/MenuDisplay/MenuDisplayOptionsContainer/MainMenuButtons/HBoxContainer/VBoxContainer/Continuebutton
 
+@onready var background: TextureRect = $Background
 
 @onready var menu_anim_player := $VBoxContainer/MainPanel/MenuDisplay/MenuDisplayOptionsContainer/AnimationPlayer
 
@@ -18,6 +19,8 @@ func _ready() -> void:
 	Music.play(Music.SONGS.MENU)
 	if Save.savedata.beaten or not Save.savedata.save_exists:
 		continuebutton.disabled = true
+	if Save.savedata.beaten:
+		background.texture = preload("res://assets/graphics/userInterface/menugood.PNG")
 
 
 func _on_options_button_pressed():

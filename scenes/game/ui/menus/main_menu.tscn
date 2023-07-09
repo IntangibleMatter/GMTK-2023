@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://pccaipeylmb"]
+[gd_scene load_steps=12 format=3 uid="uid://pccaipeylmb"]
 
 [ext_resource type="Theme" uid="uid://bcb0fhoal7q0d" path="res://assets/themes/theme.tres" id="1_vi7jb"]
 [ext_resource type="Script" path="res://scenes/game/ui/menus/main_menu.gd" id="2_wb6lu"]
 [ext_resource type="Script" path="res://objects/miscscripts/hideonweb.gd" id="3_d6na5"]
 [ext_resource type="PackedScene" uid="uid://bna3a48kkq3bh" path="res://scenes/game/ui/menus/menu_components/options_menu_options.tscn" id="3_luepe"]
+[ext_resource type="Texture2D" uid="uid://bnq3r3p3j64dq" path="res://assets/graphics/userInterface/menubad.PNG" id="3_s6yk4"]
 [ext_resource type="PackedScene" uid="uid://b8sa71onakaws" path="res://scenes/game/ui/menus/menu_components/menu_credits.tscn" id="4_s3wjf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_b14wj"]
@@ -307,6 +308,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("3_s6yk4")
+expand_mode = 3
 metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -322,7 +325,7 @@ grow_vertical = 2
 
 [node name="Title" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Barred From Life"
+text = "BARRED FROM LIFE"
 label_settings = SubResource("LabelSettings_b14wj")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -355,8 +358,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 246.0
-offset_bottom = 240.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -365,8 +366,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 246.0
-offset_bottom = 240.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
@@ -439,8 +438,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 256.0
-offset_right = 502.0
-offset_bottom = 240.0
+offset_right = 256.0
 grow_horizontal = 2
 grow_vertical = 2
 

@@ -1,0 +1,116 @@
+[gd_scene load_steps=11 format=3 uid="uid://cqfn4w26nqn5s"]
+
+[ext_resource type="PackedScene" uid="uid://ht54ul0deq8n" path="res://objects/interactables/props/propbase.tscn" id="1_p7dap"]
+[ext_resource type="Texture2D" uid="uid://bb3vopmsxhunm" path="res://assets/graphics/props/Props_Spritesheet.png" id="2_mhile"]
+[ext_resource type="Shader" path="res://objects/interactables/props/tv/tv.gdshader" id="3_bcbkm"]
+[ext_resource type="Script" path="res://objects/interactables/props/tv/tv.gd" id="3_iijhw"]
+[ext_resource type="Texture2D" uid="uid://cqe2wof3hn6yp" path="res://assets/graphics/props/tvsheet.png" id="3_vqflp"]
+[ext_resource type="Texture2D" uid="uid://otgwk483meo1" path="res://assets/graphics/effects/static.png" id="5_7wvce"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_myxor"]
+shader = ExtResource("3_bcbkm")
+shader_parameter/tiled_factor = Vector2(5, 5)
+shader_parameter/aspect_ratio = 0.5
+shader_parameter/time_scale = Vector2(2, 2)
+shader_parameter/offset_scale = Vector2(2, 2)
+shader_parameter/amplitude = Vector2(0.05, 0.1)
+shader_parameter/opacity = 0.0
+
+[sub_resource type="Animation" id="Animation_xgt3c"]
+resource_name = "change_channels"
+length = 5.0
+loop_mode = 1
+step = 0.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("static:material:shader_parameter/opacity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(4.5, 4.7, 4.8, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(4.737),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"change_channels"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_pkhpm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("static:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("static:material:shader_parameter/opacity")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xu5dw"]
+_data = {
+"RESET": SubResource("Animation_pkhpm"),
+"change_channels": SubResource("Animation_xgt3c")
+}
+
+[node name="tv" instance=ExtResource("1_p7dap")]
+position = Vector2(0, -16)
+texture = ExtResource("2_mhile")
+hframes = 8
+vframes = 16
+frame = 60
+script = ExtResource("3_iijhw")
+max_channel = 4
+
+[node name="tvscreen" type="Sprite2D" parent="." index="1"]
+material = SubResource("ShaderMaterial_myxor")
+position = Vector2(0, -3)
+scale = Vector2(1.04, 1.04)
+texture = ExtResource("3_vqflp")
+hframes = 10
+vframes = 10
+frame = 1
+
+[node name="static" type="Sprite2D" parent="." index="2"]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(1, 1, 1, 0)
+texture_repeat = 2
+material = SubResource("ShaderMaterial_myxor")
+position = Vector2(0, -3)
+scale = Vector2(1.04, 1.04)
+texture = ExtResource("5_7wvce")
+hframes = 10
+vframes = 10
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_xu5dw")
+}

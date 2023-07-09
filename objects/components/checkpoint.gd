@@ -25,7 +25,11 @@ func _on_body_entered(body: Node2D) -> void:
 	if not body.is_in_group("Player"):
 		return
 	set_savedata_values()
-	
+
+
+func get_spawn_point() -> Vector2:
+	return marker_2d.global_position
+
 
 func set_savedata_values() -> void:
 	if not get_tree().current_scene.is_in_group("game"):
