@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqnnjoxpyjug7"]
+
+[ext_resource type="PackedScene" uid="uid://ht54ul0deq8n" path="res://objects/interactables/props/propbase.tscn" id="1_fno36"]
+[ext_resource type="Texture2D" uid="uid://bb3vopmsxhunm" path="res://assets/graphics/props/Props_Spritesheet.png" id="2_xfax6"]
+
+[node name="propbase" instance=ExtResource("1_fno36")]
+texture = ExtResource("2_xfax6")
+hframes = 16
+vframes = 16
+frame = 54
