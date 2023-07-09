@@ -22,4 +22,5 @@ func _process(_delta):
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
+		Save.save_game()
 		emit_signal("level_complete", next_scene)

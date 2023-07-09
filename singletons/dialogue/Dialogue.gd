@@ -30,6 +30,8 @@ func cleanup() -> void:
 	currently_interacting = false
 	last_speaker_index = -1
 
+func _ready() -> void:
+	cleanup()
 
 
 func _input(event: InputEvent) -> void:
@@ -55,20 +57,20 @@ func play_interaction() -> void:
 			if index > interaction.dialogue.size() - 1:
 				break
 		setup_for_speaker()
-		print("ASDASD")
+		#print("ASDASD")
 		speaking = true
 #		await setup_done
 		display_dialogue()
-		print("ADBGKJBKJJBK")
+		#print("ADBGKJBKJJBK")
 		if waiting:
 			await get_tree().create_timer(wait_time).timeout
 			waiting = false
 #			emit_signal("next_line")
-			print("hhhhh")
+			#print("hhhhh")
 		else:
 			await next_line
-			print("kjhk")
-		print("oop")
+			#print("kjhk")
+		#print("oop")
 		index += 1
 		
 	cleanup()
@@ -85,7 +87,7 @@ func display_dialogue() -> void:
 	speaking = true
 	rich_text_label.visible_characters = 0
 	if interaction.dialogue[index].contains("{{wait}}"):
-		print('askjd')
+		#print('askjd')
 		waiting = true
 		wait_time = float(interaction.dialogue[index].replace("{{wait}}", ""))
 		speaking = false
@@ -93,7 +95,7 @@ func display_dialogue() -> void:
 	rich_text_label.text = interaction.dialogue[index].replace("\\n", "\n")
 	speaker_noise.play()
 	for i in strip_bbcode(rich_text_label.text).length():
-		print(strip_bbcode(rich_text_label.text[i]))
+#		#print(strip_bbcode(rich_text_label.text[i]))
 		rich_text_label.visible_characters += 1
 		await get_tree().create_timer(0.03).timeout
 		if jump_to_end:

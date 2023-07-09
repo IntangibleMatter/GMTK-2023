@@ -2,6 +2,8 @@ extends CanvasLayer
 
 signal dialogue_signal(name: String)
 
+signal done
+
 @onready var dialogue: Control = $Dialogue
 
 var currently_talking : String
@@ -11,6 +13,8 @@ var current_interaction : Interaction
 var player_frozen = false
 
 func set_interaction(interaction: Interaction) -> void:
+	if interaction == null:
+		return
 	if interaction.speaker_order.size() < interaction.dialogue.size():
 		interaction.speaker_order.resize(interaction.dialogue.size())
 	current_interaction = interaction
@@ -38,6 +42,7 @@ func play_interaction() -> void:
 		var status_mod : String = "[color=red]" if current_interaction.health_change <= 0 else "[color = green]"
 		Save.savedata.status.append(status_mod + current_interaction.status_effect)
 		Save.change_player_health(current_interaction.health_change)
+	emit_signal("done")
 	player_frozen = false
 	current_interaction = null
 	currently_talking = ""

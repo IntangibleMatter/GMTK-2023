@@ -28,8 +28,8 @@ Save="*res://singletons/save.gd"
 
 window/size/viewport_width=512
 window/size/viewport_height=288
-window/size/window_width_override=1280
-window/size/window_height_override=720
+window/size/window_width_override=1282
+window/size/window_height_override=722
 window/stretch/mode="canvas_items"
 
 [filesystem]

@@ -55,4 +55,6 @@ drag_bottom_margin = 0.3
 
 [node name="Sprite2D" type="Sprite2D" parent="LevelExitShortner"]
 
+[node name="props" type="Node2D" parent="."]
+
 [connection signal="level_complete" from="level_exit" to="." method="_on_level_exit_level_complete"]

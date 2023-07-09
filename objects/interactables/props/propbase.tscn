@@ -1,18 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ht54ul0deq8n"]
+[gd_scene load_steps=3 format=3 uid="uid://ht54ul0deq8n"]
 
 [ext_resource type="PackedScene" uid="uid://by78a7vr0pwrr" path="res://objects/interactables/interactablebase.tscn" id="1_c2yyu"]
 [ext_resource type="Script" path="res://objects/interactables/props/propbase.gd" id="1_iubdg"]
-[ext_resource type="Shader" path="res://assets/shaders/highlighted.gdshader" id="1_rgqld"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4mxtd"]
-shader = ExtResource("1_rgqld")
-shader_parameter/color = Vector4(1, 1, 1, 1)
-shader_parameter/flashstate = 0.0
-shader_parameter/glowfactor = 0.3
-shader_parameter/timefactor = 4.0
 
 [node name="propbase" type="Sprite2D"]
-material = SubResource("ShaderMaterial_4mxtd")
 script = ExtResource("1_iubdg")
 
 [node name="interactablebase" parent="." instance=ExtResource("1_c2yyu")]

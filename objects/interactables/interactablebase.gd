@@ -42,11 +42,12 @@ func _input(event):
 	if event.is_action_pressed("interact"):
 		if i_am_closest:
 			await get_tree().process_frame
-			used = true
+			if interaction.disable_on_interact:
+				used = true
 #		if has_overlapping_bodies():
 #			for body in get_overlapping_bodies():
 #				if body.is_in_group("Player"):
-#					if interaction.disable_on_interact:
+#					
 #						await get_tree().process_frame
 #						used = true
 
@@ -65,8 +66,10 @@ func _on_area_exited(area):
 		emit_signal("player_exited")
 
 func calculate_closest() -> void:
+	if used: return
 	var player : CharacterBody2D = get_tree().get_first_node_in_group("Player")
 	if player.interaction_area.has_overlapping_areas():
+		print(self)
 		if player.interaction_area.get_overlapping_areas()[0] == self:
 			emit_signal("current_interactable", true)
 			i_am_closest = true

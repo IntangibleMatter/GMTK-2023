@@ -1,10 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvhtn347at867"]
+[gd_scene load_steps=4 format=3 uid="uid://bvhtn347at867"]
 
 [ext_resource type="PackedScene" uid="uid://ht54ul0deq8n" path="res://objects/interactables/props/propbase.tscn" id="1_xjntk"]
 [ext_resource type="Texture2D" uid="uid://bb3vopmsxhunm" path="res://assets/graphics/props/Props_Spritesheet.png" id="2_sxcuv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8f8di"]
+size = Vector2(64, 64)
 
 [node name="propbase" instance=ExtResource("1_xjntk")]
 texture = ExtResource("2_sxcuv")
 hframes = 16
 vframes = 16
 frame = 108
+
+[node name="interactablebase" parent="." index="0"]
+shape = SubResource("RectangleShape2D_8f8di")
+
+[node name="Camera2D" type="Camera2D" parent="." index="1"]
+zoom = Vector2(4, 4)

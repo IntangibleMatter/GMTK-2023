@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://ddqdy6uepqvco"]
+
+[ext_resource type="Shader" path="res://assets/shaders/highlighted.gdshader" id="1_3ugve"]
+
+[resource]
+shader = ExtResource("1_3ugve")
+shader_parameter/color = Vector4(1, 1, 1, 1)
+shader_parameter/flashstate = 0.0
+shader_parameter/glowfactor = 0.3
+shader_parameter/timefactor = 4.0

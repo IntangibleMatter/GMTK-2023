@@ -64,4 +64,5 @@ func handle_scene_done(info: Dictionary) -> void:
 
 
 func _on_pause_menu_retry() -> void:
+	Save.load_game()
 	change_scene(curr_scene_path)
