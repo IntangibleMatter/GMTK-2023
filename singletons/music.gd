@@ -12,6 +12,9 @@ var current_song := SONGS.MAIN
 
 
 func play(song: SONGS) -> void:
+	if song == current_song:
+		return
+	
 	match current_song:
 		SONGS.MAIN:
 			main.playing = false
